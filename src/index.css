@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+.react-flow__controls {
+  z-index: 9999;
+}
+.react-flow__attribution {
+  /* Note: Application is done by using  React Flow - https://reactflow.dev/ . Check it out*/
+  display: none;
+}
+.selected .node-wrapper {
+  box-shadow: 0 0 0 0.5px #1a192b;
+  border:2px solid #1a192b;
+}

@@ -1,8 +1,9 @@
-## Workflow Visualizer
+<h2 align='center'>Workflow Visualizer</h2>
+
+<img src="https://github.com/SandeepBalachandran/workflow-visualizer/blob/master/public/demo.gif?raw=true" alt="demo" border="0">
 
 ### Demo
 [Demo](https://workflow-visualizer.vercel.app/)
-
 ### About
 * Application is built with React JS
 * Flow diagram is built with React-Flow package
@@ -26,6 +27,16 @@
 * New nodes ( Start node , Process node, Decision node and End node for now) can be added from the list of nodes available in the menu
 * Newly added nodes can be connected with existing flow chart
 * Labels can be edited for all nodes
+* Node can be deleted using backspace key
+
+### Node details
+
+| Node Type     | Purpose                       | Handles                      | Notes                                                                                |
+|---------------|-------------------------------|------------------------------|--------------------------------------------------------------------------------------|
+| Start Node    | Denote start of the workflow  | 2 source handles             | Node can connect to 2 other nodes                                                    |
+| Process Node  | Denote steps in the workflow  | 1 source and 1 target handle | Node can receive connection from a node and can be connected to another node as well |
+| Decision Node | Denotes Conditions            | 2 source and target handles  | Node can receive 2 connections from other nodes and can be connected 2 other nodes   |
+| End Node      | Denote end of the workflow    | 2 target handles             | Node can receive 2 connections from another nodes                                    |
   
 
 ### Time dedicated

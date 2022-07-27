@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { Handle, Position } from "react-flow-renderer";
 import useStore from "../../../store/store";
 
@@ -9,19 +9,13 @@ export default function DecisionNode({ id, data }) {
   const enableEditHandle = () => {
     setEditOption(true);
   };
-  const onChangeHandler = useCallback(
-    (e) => {
-      setLabel(e.target.value);
-    },
-    [label]
-  );
-  const onBlurHandle = useCallback(
-    (e) => {
-      setEditOption(false);
-      onUpdateNodeLabel(label,id)
-    },
-    [label]
-  );
+  const onChangeHandler = (e) => {
+    setLabel(e.target.value);
+  };
+  const onBlurHandle = (e) => {
+    setEditOption(false);
+    onUpdateNodeLabel(label, id);
+  };
   return (
     <div className="node-wrapper  shadow-xl rounded-xl  cursor-pointer ease-in duration-300 border-slate-600 border border-solid bg-[#ff653b] p-5 w-[150px] h-[150px]  text-[#fff] rotate-45">
       <div className="w-[100px] h-[100px] -rotate-45">

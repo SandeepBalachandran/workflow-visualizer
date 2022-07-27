@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { Handle, Position } from "react-flow-renderer";
 import useStore from "../../../store/store";
 const handleStyle = { right: 0 };
@@ -10,20 +10,14 @@ export default function StartEndNode({ id, data }) {
   const enableEditHandle = () => {
     setEditOption(true);
   };
-  const onChangeHandler = useCallback(
-    (e) => {
-      setLabel(e.target.value);
-    },
-    [label]
-  );
+  const onChangeHandler = (e) => {
+    setLabel(e.target.value);
+  };
 
-  const onBlurHandle = useCallback(
-    (e) => {
-      setEditOption(false);
-      updateNodeLabel(label,id)
-    },
-    [label]
-  );
+  const onBlurHandle = (e) => {
+    setEditOption(false);
+    updateNodeLabel(label, id);
+  };
 
   return (
     <div className="node-wrapper start-end-node-wrapper shadow-xl w-[220px]  cursor-pointer ease-in duration-300 border rounded-full border-slate-600 border-solid bg-black text-white p-5">

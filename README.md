@@ -1,5 +1,8 @@
 ## Workflow Visualizer
 
+### Demo
+[Demo](https://workflow-visualizer.vercel.app/)
+
 ### About
 * Application is built with React JS
 * Flow diagram is built with React-Flow package

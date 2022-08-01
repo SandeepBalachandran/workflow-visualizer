@@ -40,7 +40,7 @@ function Home() {
   };
 
   const addStartEndNode = (nodeType) => {
-    const id = nodeType ? `StartNode_${startNodeId}` : `EndNode_${endNodeId}`;
+    const id = nodeType ? `StartNode_${++startNodeId}` : `EndNode_${++endNodeId}`;
     const label = nodeType ? "Start Node" : `End Node`;
     const type = "startEndNode";
     const newNode = addNewNode({ label, type, nodeType, id });

@@ -5,7 +5,7 @@ import StartEndNode from "./custom/StartEndNode/StartEndNode";
 import ProcessNode from "./custom/ProcessNode/ProcessNode";
 import SideMenu from "./common/sideMenu/SideMenu";
 import useStore from "../store/store";
-import addNewNode from "../helpers/helper";
+import { addNewNode, nodeColor, nodeStrokeColor } from "../helpers/helper";
 
 const edgeOptions = {
   animated: false,
@@ -55,31 +55,7 @@ function Home() {
     const newNode = addNewNode({ label, type, nodeType, id });
     reactFlowInstance.addNodes(newNode);
   };
-  const nodeColor = (node) => {
-    switch (node.type) {
-      case "startEndNode":
-        return "#000";
-      case "processNode":
-        return "#784be8";
-      case "decisionNode":
-        return "#ff653b";
-      default:
-        return "#eee";
-    }
-  };
 
-  const nodeStrokeColor = (node) => {
-    switch (node.type) {
-      case "startEndNode":
-        return "#000";
-      case "processNode":
-        return "#784be8";
-      case "decisionNode":
-        return "#ff653b";
-      default:
-        return "#eee";
-    }
-  };
 
   return (
     <>

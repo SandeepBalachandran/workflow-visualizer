@@ -1,4 +1,4 @@
-const addNewNode = ({label ,type, nodeType, id}) => {
+const addNewNode = ({ label, type, nodeType, id }) => {
   const newNode = {
     id,
     type,
@@ -8,13 +8,37 @@ const addNewNode = ({label ,type, nodeType, id}) => {
     },
     data: {
       nodeType,
-      label
+      label,
     },
   };
+  console.log(newNode)
   return newNode;
 };
 
-export default addNewNode;
+const nodeColor = (node) => {
+  switch (node.type) {
+    case "startEndNode":
+      return "#000";
+    case "processNode":
+      return "#784be8";
+    case "decisionNode":
+      return "#ff653b";
+    default:
+      return "#eee";
+  }
+};
 
+const nodeStrokeColor = (node) => {
+  switch (node.type) {
+    case "startEndNode":
+      return "#000";
+    case "processNode":
+      return "#784be8";
+    case "decisionNode":
+      return "#ff653b";
+    default:
+      return "#eee";
+  }
+};
 
-
+export { addNewNode, nodeColor, nodeStrokeColor };

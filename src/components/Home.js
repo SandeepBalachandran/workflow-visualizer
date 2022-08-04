@@ -1,34 +1,20 @@
-import React, {  useMemo } from "react";
+import React from "react";
 import ReactFlow, { ReactFlowProvider, MiniMap, Controls, Background, useReactFlow } from "react-flow-renderer";
 import DecisionNode from "./custom/DecisionNode/DecisionNode";
 import StartEndNode from "./custom/StartEndNode/StartEndNode";
 import ProcessNode from "./custom/ProcessNode/ProcessNode";
 import SideMenu from "./common/sideMenu/SideMenu";
 import useStore from "../store/store";
-import { addNewNode, nodeColor, nodeStrokeColor } from "../helpers/helper";
+import { addNewNode, nodeColor, nodeStrokeColor, edgeOptions, flowstyle } from "../helpers/helper";
 
-const edgeOptions = {
-  animated: false,
-  style: {
-    stroke: "white",
-    strokeWidth: 5,
-  },
-  markerEnd: { type: "arrowclosed", color: "black" },
-  className: "customArrow",
-  type: "step",
-};
-
-const flowstyle = {
-  backgroundColor: "#B8CEFF",
-};
 let startNodeId = 1;
 let processNodeId = 7;
 let decisionNodeId = 1;
 let endNodeId = 1;
 
+const nodeTypes = { startEndNode: StartEndNode, processNode: ProcessNode, decisionNode: DecisionNode };
 function Home() {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore();
-  const nodeTypes = useMemo(() => ({ startEndNode: StartEndNode, processNode: ProcessNode, decisionNode: DecisionNode }), []);
   const reactFlowInstance = useReactFlow();
   const addDecisionNode = () => {
     const id = `DecisionNode_${++decisionNodeId}`;
@@ -55,7 +41,6 @@ function Home() {
     const newNode = addNewNode({ label, type, nodeType, id });
     reactFlowInstance.addNodes(newNode);
   };
-
 
   return (
     <>

@@ -44,12 +44,30 @@ function Home() {
 
   return (
     <>
-      <ReactFlow nodes={nodes} edges={edges} onNodesChange={onNodesChange} onEdgesChange={onEdgesChange} onConnect={onConnect} nodeTypes={nodeTypes} fitView style={flowstyle} defaultEdgeOptions={edgeOptions}>
-        <MiniMap nodeColor={nodeColor} nodeStrokeColor={nodeStrokeColor} nodeStrokeWidth={3} />
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        nodeTypes={nodeTypes}
+        fitView
+        style={flowstyle}
+        defaultEdgeOptions={edgeOptions
+        }>
+
+        <MiniMap
+          nodeColor={nodeColor}
+          nodeStrokeColor={nodeStrokeColor}
+          nodeStrokeWidth={3} />
         <Controls />
         <Background color="#ecf0f3" />
       </ReactFlow>
-      <SideMenu onAddStartNode={(type) => addStartEndNode(type)} onAddDecisionNode={addDecisionNode} onAddProcessNode={addProcessNode} onAddEndNode={(type) => addStartEndNode(type)} />
+      <SideMenu
+        onAddStartNode={(type) => addStartEndNode(type)}
+        onAddDecisionNode={addDecisionNode}
+        onAddProcessNode={addProcessNode}
+        onAddEndNode={(type) => addStartEndNode(type)} />
     </>
   );
 }

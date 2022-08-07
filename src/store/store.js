@@ -1,9 +1,10 @@
 import create from "zustand";
 import { addEdge, applyNodeChanges, applyEdgeChanges } from "react-flow-renderer";
+import { persist } from 'zustand/middleware'
 import initialNodes from "../utils/nodes";
 import initialEdges from "../utils/edges";
 
-const useStore = create((set, get) => ({
+const useStore = create(persist((set, get) => ({
   nodes: initialNodes,
   edges: initialEdges,
   onNodesChange: (changes) => {
@@ -39,6 +40,6 @@ const useStore = create((set, get) => ({
     console.log(get().nodes)
     console.log(get().edges)
   },
-}));
+})));
 
 export default useStore;

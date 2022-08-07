@@ -40,6 +40,9 @@ const useStore = create(persist((set, get) => ({
     console.log(get().nodes)
     console.log(get().edges)
   },
-})));
+}),{
+  name: 'flow-storage', // unique key name
+  getStorage: () => localStorage, // (optional) by default, 'localStorage' is used
+}));
 
 export default useStore;

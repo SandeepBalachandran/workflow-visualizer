@@ -1,3 +1,5 @@
+import { Node } from 'react-flow-renderer';
+
 const initialNodes =  [
   {
     id: "startNode_1",
@@ -59,6 +61,6 @@ const initialNodes =  [
     position: { x: 1000, y: 600 },
     data: { nodeType: 0, label: "End" },
   },
-];
+]  as Node[];
 
 export default initialNodes;

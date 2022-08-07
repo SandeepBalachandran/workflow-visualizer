@@ -1,7 +1,7 @@
 import React from "react";
 
-const SideMenu = ({ onAddDecisionNode, onAddStartNode, onAddEndNode, onAddProcessNode }) => {
-  const onNodeAdd = (nodeType) => {
+const SideMenu = ({ onAddDecisionNode, onAddStartNode, onAddEndNode, onAddProcessNode }: { onAddDecisionNode: any; onAddStartNode: any; onAddEndNode: any; onAddProcessNode: any }) => {
+  const onNodeAdd = (nodeType: string): void => {
     switch (nodeType) {
       case "startNode":
         onAddStartNode(1);

@@ -1,18 +1,34 @@
 import React from "react";
-import ReactFlow, { ReactFlowProvider, MiniMap, Controls, Background, useReactFlow } from "react-flow-renderer";
+import ReactFlow, {
+  ReactFlowProvider,
+  MiniMap,
+  Controls,
+  Background,
+  useReactFlow,
+} from "react-flow-renderer";
 import DecisionNode from "./custom/DecisionNode/DecisionNode";
 import StartEndNode from "./custom/StartEndNode/StartEndNode";
 import ProcessNode from "./custom/ProcessNode/ProcessNode";
 import SideMenu from "./common/sideMenu/SideMenu";
 import useStore from "../store/store";
-import { addNewNode, nodeColor, nodeStrokeColor, edgeOptions, flowstyle } from "../helpers/helper";
+import {
+  addNewNode,
+  nodeColor,
+  nodeStrokeColor,
+  edgeOptions,
+  flowstyle,
+} from "../helpers/helper";
 
 let startNodeId = 1;
 let processNodeId = 7;
 let decisionNodeId = 1;
 let endNodeId = 1;
 
-const nodeTypes = { startEndNode: StartEndNode, processNode: ProcessNode, decisionNode: DecisionNode };
+const nodeTypes = {
+  startEndNode: StartEndNode,
+  processNode: ProcessNode,
+  decisionNode: DecisionNode,
+};
 function Home() {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore();
   const reactFlowInstance = useReactFlow();
@@ -25,8 +41,10 @@ function Home() {
     reactFlowInstance.addNodes(newNode);
   };
 
-  const addStartEndNode = (nodeType) => {
-    const id = nodeType ? `StartNode_${++startNodeId}` : `EndNode_${++endNodeId}`;
+  const addStartEndNode = (nodeType: string) => {
+    const id = nodeType
+      ? `StartNode_${++startNodeId}`
+      : `EndNode_${++endNodeId}`;
     const label = nodeType ? "Start Node" : `End Node`;
     const type = "startEndNode";
     const newNode = addNewNode({ label, type, nodeType, id });
@@ -53,21 +71,22 @@ function Home() {
         nodeTypes={nodeTypes}
         fitView
         style={flowstyle}
-        defaultEdgeOptions={edgeOptions
-        }>
-
+        defaultEdgeOptions={edgeOptions}
+      >
         <MiniMap
           nodeColor={nodeColor}
           nodeStrokeColor={nodeStrokeColor}
-          nodeStrokeWidth={3} />
+          nodeStrokeWidth={3}
+        />
         <Controls />
         <Background color="#ecf0f3" />
       </ReactFlow>
       <SideMenu
-        onAddStartNode={(type) => addStartEndNode(type)}
+        onAddStartNode={(type: string) => addStartEndNode(type)}
         onAddDecisionNode={addDecisionNode}
         onAddProcessNode={addProcessNode}
-        onAddEndNode={(type) => addStartEndNode(type)} />
+        onAddEndNode={(type: string) => addStartEndNode(type)}
+      />
     </>
   );
 }

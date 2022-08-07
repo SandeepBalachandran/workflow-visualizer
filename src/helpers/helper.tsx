@@ -1,4 +1,17 @@
-const addNewNode = ({ label, type, nodeType, id }) => {
+import { DefaultEdgeOptions, MarkerType } from "react-flow-renderer";
+import { newNode } from "../models/models";
+
+const addNewNode = ({
+  label,
+  type,
+  nodeType,
+  id,
+}: {
+  label: string;
+  type: string;
+  nodeType: string;
+  id: string;
+}): newNode => {
   const newNode = {
     id,
     type,
@@ -14,8 +27,15 @@ const addNewNode = ({ label, type, nodeType, id }) => {
   return newNode;
 };
 
-const nodeColor = (node) => {
-  const nodeColor = {
+export interface miniMapColors {
+  startEndNode: string;
+  processNode: string;
+  decisionNode: string;
+  default: string;
+}
+
+const nodeColor = (node: any): any => {
+  const nodeColor: any = {
     startEndNode: "#000",
     processNode: "#784be8",
     decisionNode: "#ff653b",
@@ -24,8 +44,8 @@ const nodeColor = (node) => {
   return nodeColor[node.type];
 };
 
-const nodeStrokeColor = (node) => {
-  const nodeColor = {
+const nodeStrokeColor = (node: any): any => {
+  const nodeColor: any = {
     startEndNode: "#000",
     processNode: "#784be8",
     decisionNode: "#ff653b",
@@ -34,13 +54,13 @@ const nodeStrokeColor = (node) => {
   return nodeColor[node.type];
 };
 
-const edgeOptions = {
+const edgeOptions: DefaultEdgeOptions = {
   animated: false,
   style: {
     stroke: "white",
     strokeWidth: 5,
   },
-  markerEnd: { type: "arrowclosed", color: "black" },
+  markerEnd: { type: MarkerType.ArrowClosed , color: "black" },
   className: "customArrow",
   type: "step",
 };

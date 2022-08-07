@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <>
       <div className="fixed w-full flex flex-row  shadow-xl z-[40] ease-in-out duration-300 bg-white justify-between">
-        <div className="w-[10%] p-2">{/* <img src="https://www.labforward.io/wp-content/uploads/2019/12/Labforward_Logo_1line_Pos_RGB-1.png"></img> */}</div>
+        <div className="w-[10%] p-2"></div>
         <div className="p-2 flex align-middle justify-center m-3 text-lg cursor-pointer">
           <FaInfoCircle className="user-account text-[#395383] mx-2" onClick={clickHandler} />
           <FaUserAlt className="user-account text-[#395383] mx-2" />

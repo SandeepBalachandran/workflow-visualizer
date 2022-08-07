@@ -3,17 +3,18 @@ import { Handle, Position } from "react-flow-renderer";
 import useStore from "../../../store/store";
 const handleStyle = { right: 0 };
 
-export default function ProcessNode({ id, data }) {
+export default function ProcessNode({ id, data }: { id: string; data: { nodeType: string; label: string } }) {
   const [editOption, setEditOption] = useState(false);
   const [label, setLabel] = useState(data.label);
-  const onUpdateNodeLabel = useStore((state) => state.updateNodeLabel);
+  const onUpdateNodeLabel = useStore((state: any) => state.updateNodeLabel);
   const enableEditHandle = () => {
     setEditOption(true);
   };
-  const onChangeHandler = (e) => {
-    setLabel(e.target.value);
+  const onChangeHandler: React.ChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLabel(event.target.value);
   };
-  const onBlurHandle = (e) => {
+
+  const onBlurHandle: React.ChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEditOption(false);
     onUpdateNodeLabel(label, id);
   };

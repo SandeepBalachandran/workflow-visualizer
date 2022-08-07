@@ -1,39 +1,19 @@
-import create  from "zustand";
-import { Connection, Edge, EdgeChange, Node, NodeChange, addEdge, OnNodesChange, OnEdgesChange, OnConnect, applyNodeChanges, applyEdgeChanges } from "react-flow-renderer";
-import { persist } from "zustand/middleware";
+import create from "zustand";
+import {
+  Connection,
+  EdgeChange,
+  NodeChange,
+  addEdge,
+  applyNodeChanges,
+  applyEdgeChanges,
+} from "react-flow-renderer";
+import { persist  } from "zustand/middleware";
 import initialNodes from "../utils/nodes";
 import initialEdges from "../utils/edges";
 import { newNode } from "../models/models";
 
-export type NodeData = {
-  color: string;
-};
-
-export type RFState = {
-  nodes: Node<NodeData>[];
-  edges: Edge[];
-  onNodesChange: OnNodesChange;
-  onEdgesChange: OnEdgesChange;
-  onConnect: OnConnect;
-  updateNodeLabel: (nodeId: string, color: string) => void;
-};
-
-export interface SessionData {
-  token?: string;
-  refreshToken?: string;
-  expiredAt?: number;
-}
-
-export interface UserData {
-  id: string;
-  name: string;
-  email: string;
-}
-
-
-
 const useStore = create<any>(
-  persist<any>(
+  persist(
     (set, get) => ({
       nodes: initialNodes,
       edges: initialEdges,
@@ -57,7 +37,7 @@ const useStore = create<any>(
 
       updateNodeLabel: (newLabel: string, selectedId: string) => {
         set({
-          nodes: get().nodes.map((currentElement:newNode) => {
+          nodes: get().nodes.map((currentElement: newNode) => {
             if (currentElement.id === selectedId) {
               return {
                 ...currentElement,

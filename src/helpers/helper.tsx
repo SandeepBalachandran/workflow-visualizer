@@ -1,4 +1,4 @@
-import { DefaultEdgeOptions, MarkerType } from "react-flow-renderer";
+import { DefaultEdgeOptions, MarkerType, Node } from "react-flow-renderer";
 import { newNode } from "../models/models";
 
 const addNewNode = ({
@@ -34,24 +34,24 @@ export interface miniMapColors {
   default: string;
 }
 
-const nodeColor = (node: any): any => {
+const nodeColor = (node: Node): any => {
   const nodeColor: any = {
     startEndNode: "#000",
     processNode: "#784be8",
     decisionNode: "#ff653b",
     default: "#eee",
   };
-  return nodeColor[node.type];
+  return nodeColor[node.type!];
 };
 
-const nodeStrokeColor = (node: any): any => {
+const nodeStrokeColor = (node: Node): any => {
   const nodeColor: any = {
     startEndNode: "#000",
     processNode: "#784be8",
     decisionNode: "#ff653b",
     default: "#eee",
   };
-  return nodeColor[node.type];
+  return nodeColor[node.type!];
 };
 
 const edgeOptions: DefaultEdgeOptions = {

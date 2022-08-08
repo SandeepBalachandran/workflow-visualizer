@@ -29,7 +29,7 @@ const nodeTypes = {
   processNode: ProcessNode,
   decisionNode: DecisionNode,
 };
-function Home() {
+function Editor() {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore();
   const reactFlowInstance = useReactFlow();
   const addDecisionNode = () => {
@@ -62,40 +62,42 @@ function Home() {
 
   return (
     <>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        nodeTypes={nodeTypes}
-        fitView
-        style={flowstyle}
-        defaultEdgeOptions={edgeOptions}
-      >
-        <MiniMap
-          nodeColor={nodeColor}
-          nodeStrokeColor={nodeStrokeColor}
-          nodeStrokeWidth={3}
+      <div className="App h-[100vh] w-full">
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          nodeTypes={nodeTypes}
+          fitView
+          style={flowstyle}
+          defaultEdgeOptions={edgeOptions}
+        >
+          <MiniMap
+            nodeColor={nodeColor}
+            nodeStrokeColor={nodeStrokeColor}
+            nodeStrokeWidth={3}
+          />
+          <Controls />
+          <Background color="#ecf0f3" />
+        </ReactFlow>
+        <SideMenu
+          onAddStartNode={(type: string) => addStartEndNode(type)}
+          onAddDecisionNode={addDecisionNode}
+          onAddProcessNode={addProcessNode}
+          onAddEndNode={(type: string) => addStartEndNode(type)}
         />
-        <Controls />
-        <Background color="#ecf0f3" />
-      </ReactFlow>
-      <SideMenu
-        onAddStartNode={(type: string) => addStartEndNode(type)}
-        onAddDecisionNode={addDecisionNode}
-        onAddProcessNode={addProcessNode}
-        onAddEndNode={(type: string) => addStartEndNode(type)}
-      />
+      </div>
     </>
   );
 }
 
-export default function HomeContainer() {
+export default function EditorContainer() {
   return (
     <>
       <ReactFlowProvider>
-        <Home />
+        <Editor />
       </ReactFlowProvider>
     </>
   );

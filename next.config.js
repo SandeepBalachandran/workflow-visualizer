@@ -1,6 +1,6 @@
 module.exports = {
     reactStrictMode: true,
-    // distDir: 'dist',
+    distDir: 'build',
     // basePath: '/blog',
     i18n: {
       locales: ["en"],

@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "lint": "next lint"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

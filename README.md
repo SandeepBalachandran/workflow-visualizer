@@ -38,17 +38,4 @@
 | Decision Node | Denotes Conditions            | 2 source and target handles  | Node can receive 2 connections from other nodes and can be connected 2 other nodes   |
 | End Node      | Denote end of the workflow    | 2 target handles             | Node can receive 2 connections from another nodes                                    |
   
-
-### Time dedicated
-* Development - 8 hours
-* Documentation - 1 hour
-
-### Where Can I improve the solution
-#### Technical Perspective
-* Test cases can be added
-
-#### User Point of view
-* More shapes can be included with the list of shapes currently available
-* Upload feature can be added for assets insertion
-* Import and Export feature ( application current state ) can be added in different formats
-* Search feature can be added once the diagram starts to scale.
+r

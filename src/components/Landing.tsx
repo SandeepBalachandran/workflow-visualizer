@@ -34,7 +34,7 @@ const Landing: NextPage = () => {
   return (
     <>
       <Container>
-        <div className="w-full flex flex-col lg:flex-row justify-between">
+        <div className="w-full flex flex-col lg:flex-row justify-between mb-8 md:mb-0">
           <div className="flex flex-col align-middle justify-center my-15 text-center lg:text-left">
             <h1 className="text-4xl lg:text-6xl my-2 leading-[1.25]">
               Build your workflow <br />

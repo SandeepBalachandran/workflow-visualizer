@@ -12,10 +12,6 @@ const Main = styled.div`
   background:#155bd5;
   color:#fff;
   min-height:100vh;
-
-  & > div {
-    margin-bottom: 25px;
-  }
 `;
 
 const Home: NextPage = () => {

@@ -1,4 +1,4 @@
-import {Edge, Node, OnNodesChange, OnEdgesChange, OnConnect } from "react-flow-renderer";
+import { Edge, Node, OnNodesChange, OnEdgesChange, OnConnect } from 'react-flow-renderer';
 
 export interface newNode {
   id: string;
@@ -15,3 +15,9 @@ export type RFState = {
   onConnect: OnConnect;
   updateNodeLabel: (nodeId: string, color: string) => void;
 };
+
+export interface templates {
+  id: Number;
+  title: string;
+  method: any;
+}

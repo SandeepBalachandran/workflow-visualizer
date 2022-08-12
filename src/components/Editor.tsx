@@ -59,7 +59,6 @@ function Editor() {
     const newNode = addNewNode({ label, type, nodeType, id });
     reactFlowInstance.addNodes(newNode);
   };
-
   return (
     <>
       <div className="App h-[100vh] w-full">

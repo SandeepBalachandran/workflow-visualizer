@@ -2,16 +2,22 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import Logo from '../../public/landing_logo.svg';
-import { FaUserAltSlash, FaUserClock, FaSmile } from 'react-icons/fa';
-import Link from 'next/link';
 import { NextPage } from 'next';
+import Router from 'next/router';
+import { isInProgress } from '../helpers/helper';
+import useStore from '../store/store';
+import { getIcon } from '../utils/icons';
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  max-width:400px;
+  max-width: 400px;
+
+  @media (min-width: 350px) {
+    max-width: 300px;
+  }
 
   @media (min-width: 576px) {
     max-width: 540px;
@@ -30,48 +36,55 @@ const Container = styled.div`
     max-width: 1320px;
   }
 `;
+
 const Landing: NextPage = () => {
+  // const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore();
+  const routeToEditor = () => {
+    isInProgress() ? Router.push('/editor') : Router.push('/choose');
+  };
+  // if (nodes.length) {
   return (
     <>
       <Container>
         <div className="w-full flex flex-col lg:flex-row justify-between mb-8 md:mb-0">
           <div className="flex flex-col align-middle justify-center my-15 text-center lg:text-left">
-            <h1 className="text-4xl lg:text-6xl my-2 leading-[1.25]">
+            <h1 className="lg:leading-[1.25] text-4xl lg:text-6xl my-2 ">
               Build your workflow <br />
               in no time
             </h1>
             <div className="w-full text-center lg:text-left">
-              <Link href="/editor">
-                <div className="w-[200px] rounded bg-full p-3 my-6 bg-white text-[#155bd5] text-center font-bold hover:cursor-pointer inline-block">
-                  Get Started
-                </div>
-              </Link>
+              <div
+                onClick={routeToEditor}
+                className="w-[200px] rounded p-3 my-6 bg-white text-[#155bd5] text-center font-bold hover:cursor-pointer inline-block"
+              >
+                Get Started
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row justify-between sm:my-20">
               <div className="text-center my-5 sm:my-0">
-                <FaUserAltSlash className="inline text-3xl" />
+                <span className="text-3xl flex justify-center">{getIcon('noregistration')}</span>
                 <h2 className="my-3">No signup/signin</h2>
                 {/* <p>
-                  Completely free and open source. No registration required. We do not store any of
-                  your information. Create unlimited workflows using our tool.
-                </p> */}
+                    Completely free and open source. No registration required. We do not store any of
+                    your information. Create unlimited workflows using our tool.
+                  </p> */}
               </div>
               <div className="text-center my-5 sm:my-0">
-                <FaUserClock className="inline text-3xl" />
+                <span className="text-3xl flex justify-center">{getIcon('fast')}</span>
                 <h2 className="my-3">Build in minutes</h2>
                 {/* <p>
-                  Completely free and open source. No registration required. We do not store any of
-                  your information. Create unlimited workflows using our tool.
-                </p> */}
+                    Completely free and open source. No registration required. We do not store any of
+                    your information. Create unlimited workflows using our tool.
+                  </p> */}
               </div>
               <div className="text-center my-5 sm:my-0">
-                <FaSmile className="inline text-3xl" />
+                <span className="text-3xl flex justify-center">{getIcon('happy')}</span>
                 <h2 className="my-3">Fit for your needs</h2>
                 {/* <p>
-                  Completely free and open source. No registration required. We do not store any of
-                  your information. Create unlimited workflows using our tool.
-                </p> */}
+                    Completely free and open source. No registration required. We do not store any of
+                    your information. Create unlimited workflows using our tool.
+                  </p> */}
               </div>
             </div>
           </div>
@@ -82,6 +95,11 @@ const Landing: NextPage = () => {
       </Container>
     </>
   );
+  // }
+
+  // else {
+  //   typeof window !== 'undefined' && Router.push('/editor');
+  // }
 };
 
 export default Landing;

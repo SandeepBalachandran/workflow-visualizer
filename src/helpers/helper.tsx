@@ -1,5 +1,5 @@
-import { DefaultEdgeOptions, MarkerType, Node } from "react-flow-renderer";
-import { newNode } from "../models/models";
+import { DefaultEdgeOptions, MarkerType, Node } from 'react-flow-renderer';
+import { newNode } from '../models/models';
 
 const addNewNode = ({
   label,
@@ -36,20 +36,20 @@ export interface miniMapColors {
 
 const nodeColor = (node: Node): any => {
   const nodeColor: any = {
-    startEndNode: "#000",
-    processNode: "#784be8",
-    decisionNode: "#ff653b",
-    default: "#eee",
+    startEndNode: '#000',
+    processNode: '#784be8',
+    decisionNode: '#ff653b',
+    default: '#eee',
   };
   return nodeColor[node.type!];
 };
 
 const nodeStrokeColor = (node: Node): any => {
   const nodeColor: any = {
-    startEndNode: "#000",
-    processNode: "#784be8",
-    decisionNode: "#ff653b",
-    default: "#eee",
+    startEndNode: '#000',
+    processNode: '#784be8',
+    decisionNode: '#ff653b',
+    default: '#eee',
   };
   return nodeColor[node.type!];
 };
@@ -57,16 +57,43 @@ const nodeStrokeColor = (node: Node): any => {
 const edgeOptions: DefaultEdgeOptions = {
   animated: false,
   style: {
-    stroke: "white",
+    stroke: 'white',
     strokeWidth: 5,
   },
-  markerEnd: { type: MarkerType.ArrowClosed , color: "black" },
-  className: "customArrow",
-  type: "step",
+  markerEnd: { type: MarkerType.ArrowClosed, color: 'black' },
+  className: 'customArrow',
+  type: 'step',
 };
 
 const flowstyle = {
-  backgroundColor: "#B8CEFF",
+  backgroundColor: '#B8CEFF',
 };
 
-export { addNewNode, nodeColor, nodeStrokeColor, edgeOptions, flowstyle };
+const isInProgress = () => {
+  const item = JSON.parse(localStorage.getItem('flow-storage')!);
+  return !!item;
+};
+
+const downloadFile = ({ data, fileName, fileType }: any) => {
+  const blob = new Blob([data], { type: fileType });
+  const a = document.createElement('a');
+  a.download = fileName;
+  a.href = window.URL.createObjectURL(blob);
+  const clickEvt = new MouseEvent('click', {
+    view: window,
+    bubbles: true,
+    cancelable: true,
+  });
+  a.dispatchEvent(clickEvt);
+  a.remove();
+};
+
+export {
+  addNewNode,
+  nodeColor,
+  nodeStrokeColor,
+  edgeOptions,
+  flowstyle,
+  isInProgress,
+  downloadFile,
+};

@@ -1,33 +1,39 @@
-<h2 align='center'>Workflow Visualizer</h2>
+<div align="center">
+<h1>Workflow Visualizer</h1>
+
+### Free and open source customizable workflow visualizer
 
 <img src="https://github.com/SandeepBalachandran/workflow-visualizer/blob/master/public/demo.gif?raw=true" alt="demo" border="0">
 
-### Demo
-[Demo](https://workflow-visualizer.vercel.app/)
-### About
-* Application is built with React JS
-* Flow diagram is built with React-Flow package
-* State is managed with Zustand
+
+[![](https://img.shields.io/github/stars/SandeepBalachandran/workflow-visualizer?style=for-the-badge)](#stars)
+[![](https://img.shields.io/github/forks/SandeepBalachandran/workflow-visualizer?style=for-the-badge)](#forks)
+
+👉 &nbsp;&nbsp;[Workflow Visualizer](https://workflow-visualizer.vercel.app/)&nbsp;&nbsp;👈
+
+</div>
 
 
-### Tools used
+### Technologies
 * [React - 18.2](https://reactjs.org/)
-* [react-flow](https://reactflow.dev/)
-* [react-tooltip](https://github.com/wwayne/react-tooltip)
+* [Next JS](https://nextjs.org/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [React Flow](https://reactflow.dev/)
 * [Zustand](https://github.com/pmndrs/zustand)
-* [react-icons](https://react-icons.github.io/react-icons/)
-* [tailwindcss](https://tailwindcss.com/)
-* [eslint]()
-* [Visual studio code]()
+* [React Icons](https://react-icons.github.io/react-icons/)
+* [Tailwindcss](https://tailwindcss.com/)
+* [Styled Components](https://styled-components.com/)
+* [Eslint](https://eslint.org/)
 
 
-### Scope
-* A flow diagram will be available in the home page which is  SOP of the  scientific experiment provided with the task description
-* All nodes are draggable and removable. All edges those which are associated with the removed nodes will be removed together as well
-* New nodes ( Start node , Process node, Decision node and End node for now) can be added from the list of nodes available in the menu
-* Newly added nodes can be connected with existing flow chart
-* Labels can be edited for all nodes
-* Node can be deleted using backspace key
+### For development
+
+- `git clone https://github.com/SandeepBalachandran/workflow-visualizer.git`
+- `npm i`
+- `npm run dev`
+
+
+
 
 ### Node details
 
@@ -38,4 +44,12 @@
 | Decision Node | Denotes Conditions            | 2 source and target handles  | Node can receive 2 connections from other nodes and can be connected 2 other nodes   |
 | End Node      | Denote end of the workflow    | 2 target handles             | Node can receive 2 connections from another nodes                                    |
   
-r
+## Help Improve
+
+Found a bug or an issue with this? [Open a new issue](https://github.com/SandeepBalachandran/workflow-visualizer/issues) here on GitHub.
+
+
+## Contribute
+Please check the [**Contributing Guidelines**](https://github.com/SandeepBalachandran/https://github.com/SandeepBalachandran/workflow-visualizer/issues/blob/master/CONTRIBUTING.md) before contributing.
+
+![](https://visitor-badge.glitch.me/badge?page_id=workflow-visualizer)

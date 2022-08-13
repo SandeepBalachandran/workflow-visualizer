@@ -3,8 +3,6 @@ import React from 'react';
 const Dropdown = (props: any) => {
   const [visible, setVisibility] = React.useState(false);
   const menuClick = () => {
-    // debugger
-    console.log(props)
     setVisibility(!visible);
   };
   return (

@@ -3,16 +3,8 @@ import Head from 'next/head';
 import * as React from 'react';
 import Header from '../components/common/header/Header';
 import Landing from '../components/Landing';
-import styled from 'styled-components';
+import { Main } from '../styles/style';
 
-const Main = styled.div`
-  // padding: 10px 5% 0;
-  margin: auto;
-  max-width: 100%;
-  background: #155bd5;
-  color: #fff;
-  min-height: 100vh;
-`;
 
 const Home: NextPage = () => {
   return (

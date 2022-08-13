@@ -101,47 +101,44 @@ const Toolbar: NextPage = () => {
           </div>
           <div className="flex flex-col  md:flex-row justify-between absolute -right-14 top-0 bg-white md:static   ">
             <Tooltip content="Add New" direction="bottom">
-              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={createNew}>
+              <div className="px-4 py-3 md:py-0  cursor-pointer relative" onClick={createNew}>
                 {getIcon('plus')}
               </div>
             </Tooltip>
             <Tooltip content="Templates" direction="bottom">
-              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleTemplatesPopup}>
+              <div className="px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleTemplatesPopup}>
                 {getIcon('templates')}
               </div>
             </Tooltip>
 
             <Tooltip content="Print" direction="bottom">
-              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={print}>
+              <div className="px-4 py-3 md:py-0  cursor-pointer relative" onClick={print}>
                 <span className="text-[#ccc]"> {getIcon('print')}</span>
               </div>
             </Tooltip>
 
             <Tooltip content="Save" direction="bottom">
-              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleSavePopup}>
+              <div className="px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleSavePopup}>
                 <span className=""> {getIcon('save')}</span>
               </div>
             </Tooltip>
 
             <Tooltip content="Import" direction="bottom">
-              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleImportPopup}>
+              <div className="px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleImportPopup}>
                 <span className=""> {getIcon('import')}</span>
               </div>
             </Tooltip>
 
             <Tooltip content="Export" direction="bottom">
-              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={exportJson}>
+              <div className="px-4 py-3 md:py-0  cursor-pointer relative" onClick={exportJson}>
                 <span className=""> {getIcon('export')}</span>
               </div>
             </Tooltip>
             <Tooltip content="Settings" direction="bottom">
-              {/* <Dropdown> */}
-              {/* <span className=""> {getIcon('settings')}</span> */}
               <MenuDropdown
                 menuLabel={<span className="text-[#ccc]"> {getIcon('settings')}</span>}
                 items={dropdownItems}
               />
-              {/* </Dropdown> */}
             </Tooltip>
           </div>
         </div>

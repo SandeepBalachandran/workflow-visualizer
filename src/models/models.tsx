@@ -21,3 +21,9 @@ export interface templates {
   title: string;
   method: any;
 }
+
+export interface dropdownItems {
+  id: Number;
+  name: string;
+  method: any;
+}

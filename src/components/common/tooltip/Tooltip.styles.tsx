@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 const Wrapper = styled.div`
   position: relative;
+  display:flex;
+  align-items:center;
 `;
 
 const TooltipBody = styled.div`

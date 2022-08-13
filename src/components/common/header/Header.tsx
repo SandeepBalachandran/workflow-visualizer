@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Logo from '../../../../public/logo.png';
 import { NextPage } from 'next';
 import Popup from '../popup/Popup';
+import { getIcon } from '../../../utils/icons';
 
 const Nav = styled.div`
   // position: fixed;
@@ -57,6 +58,9 @@ const RightItemsContainer = styled.div`
     color: #fff;
     // margin: 0 1rem;
   }
+  .icon {
+    font-size:2.5rem;
+  }
 `;
 const Header: NextPage = () => {
   const [visible, setVisible] = useState(false);
@@ -82,7 +86,7 @@ const Header: NextPage = () => {
             <a className="nav-item show-web" onClick={togglehandler}>
               FAQ
             </a>
-            <a className="nav-item show-web" href="https://github.com/SandeepBalachandran/workflow-visualizer/" target="_blank" rel="noreferrer">About</a>
+            <a className=" icon show-web" href="https://github.com/SandeepBalachandran/workflow-visualizer/" target="_blank" rel="noreferrer">{getIcon('github')}</a>
           </RightItemsContainer>
         </Container>
       </Nav>

@@ -3,7 +3,7 @@ import useStore from '../store/store';
 import Router from 'next/router';
 
 
-const OptionComponent = () => {
+const Options = () => {
   const { deleteAll, setLabProcedureFlow } = useStore();
   const useFresh = () => {
     deleteAll();
@@ -16,16 +16,16 @@ const OptionComponent = () => {
   };
   return (
     <>
-      <div className="w-full h-screen bg-[#155bd5] flex items-center	 justify-center">
-        <div className="w-[50%] h-96 p-6 flex flex-col">
+      <div className="w-cover h-screen bg-[#155bd5] flex items-center	 justify-center">
+        <div className="w-cover lg:w-[50%] h-96 p-6 flex flex-col">
           <div
-            className="w-[50%] mx-auto p-5 m-8 text-center border-2 cursor-pointer rounded-lg border-white bg-[#155bd5] text-white hover:scale-110 ease-in duration-300"
+            className="w-cover lg:w-[50%] mx-auto p-5 m-8 text-center border-2 cursor-pointer rounded-lg border-white bg-[#155bd5] text-white hover:scale-110 ease-in duration-300"
             onClick={useFresh}
           >
             Start a new one
           </div>
           <div
-            className="w-[50%] mx-auto p-5 m-8 text-center border-2 cursor-pointer rounded-lg border-white bg-[#155bd5] text-white hover:scale-110 ease-in duration-300"
+            className="w-cover lg:w-[50%] mx-auto p-5 m-8 text-center border-2 cursor-pointer rounded-lg border-white bg-[#155bd5] text-white hover:scale-110 ease-in duration-300"
             onClick={useExisting}
           >
             Use a template
@@ -36,4 +36,4 @@ const OptionComponent = () => {
   );
 };
 
-export default OptionComponent;
+export default Options;

@@ -1,10 +1,10 @@
 import React from 'react'
-import OptionComponent from '../components/OptionComponent'
+import Options from '../components/Options'
 
 const choose = () => {
   return (
     <>
-    <OptionComponent/>
+    <Options/>
     </>
   )
 }

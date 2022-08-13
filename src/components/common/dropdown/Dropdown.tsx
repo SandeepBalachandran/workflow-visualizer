@@ -9,8 +9,8 @@ const Dropdown = (props: any) => {
   };
   return (
     <>
-      <div className="relative  pt-1 z-[220]">
-        <div className="px-4 cursor-pointer relative " onClick={menuClick}>
+      <div className="relative  z-[220]">
+        <div className="px-4 py-3 md:py-0  cursor-pointer relative " onClick={menuClick}>
           {props.menuLabel}
         </div>
         {visible && (

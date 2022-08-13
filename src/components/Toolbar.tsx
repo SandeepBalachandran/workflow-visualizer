@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
 import React from 'react';
 import useStore from '../store/store';
-import Dropdown from './common/dropdown/Dropdown';
 import { downloadFile } from '../helpers/helper';
 import Tooltip from './common/tooltip/Tooltip';
 import Templates from './widgets/Templates';
@@ -9,13 +8,9 @@ import ImportJson from './widgets/ImportJson';
 import SaveFlows from './widgets/SaveFlows';
 import { getIcon } from '../utils/icons';
 // import SavedFlowsList from './widgets/savedFlowsList';
+import { dropdownItems } from '../models/models';
 import MenuDropdown from './widgets/MenuDropdown';
 
-interface dropdownItems {
-  id: Number;
-  name: string;
-  method: any;
-}
 
 const Toolbar: NextPage = () => {
   const { nodes, edges, deleteAll } = useStore();
@@ -93,7 +88,7 @@ const Toolbar: NextPage = () => {
   return (
     <>
       <div className="w-full flex flex-row justify-between fixed top-0 z-50">
-        <div className="w-max bg-white p-3 m-3 flex flex-row justify-start rounded shadow-lg">
+        <div className="w-max bg-white p-3 m-3 flex flex-row justify-start rounded shadow-lg relative">
           <div className="px-4 border-r-2 flex flex-row justify-between">
             <div>
               <span className="font-bold ">WV</span>
@@ -104,38 +99,38 @@ const Toolbar: NextPage = () => {
               </span>
             </div>
           </div>
-          <div className="flex flex-col  md:flex-row justify-between ">
+          <div className="flex flex-col  md:flex-row justify-between absolute -right-14 top-0 bg-white md:static   ">
             <Tooltip content="Add New" direction="bottom">
-              <div className="pt-1 px-4  cursor-pointer relative" onClick={createNew}>
+              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={createNew}>
                 {getIcon('plus')}
               </div>
             </Tooltip>
             <Tooltip content="Templates" direction="bottom">
-              <div className="pt-1 px-4  cursor-pointer relative" onClick={toggleTemplatesPopup}>
+              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleTemplatesPopup}>
                 {getIcon('templates')}
               </div>
             </Tooltip>
 
             <Tooltip content="Print" direction="bottom">
-              <div className="pt-1 px-4  cursor-pointer relative" onClick={print}>
+              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={print}>
                 <span className="text-[#ccc]"> {getIcon('print')}</span>
               </div>
             </Tooltip>
 
             <Tooltip content="Save" direction="bottom">
-              <div className="pt-1 px-4  cursor-pointer relative" onClick={toggleSavePopup}>
+              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleSavePopup}>
                 <span className=""> {getIcon('save')}</span>
               </div>
             </Tooltip>
 
             <Tooltip content="Import" direction="bottom">
-              <div className="pt-1 px-4  cursor-pointer relative" onClick={toggleImportPopup}>
+              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={toggleImportPopup}>
                 <span className=""> {getIcon('import')}</span>
               </div>
             </Tooltip>
 
             <Tooltip content="Export" direction="bottom">
-              <div className="pt-1 px-4  cursor-pointer relative" onClick={exportJson}>
+              <div className=" px-4 py-3 md:py-0  cursor-pointer relative" onClick={exportJson}>
                 <span className=""> {getIcon('export')}</span>
               </div>
             </Tooltip>

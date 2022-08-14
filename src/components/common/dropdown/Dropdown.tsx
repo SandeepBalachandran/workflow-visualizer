@@ -8,7 +8,7 @@ const Dropdown = (props: any) => {
   return (
     <>
       <div className="relative  z-[220]">
-        <div className="px-4 py-3 md:py-0  cursor-pointer relative " onClick={menuClick}>
+        <div className="px-4 py-3 md:py-0  cursor-pointer relative  ease-in duration-100 hover:scale-125" onClick={menuClick}>
           {props.menuLabel}
         </div>
         {visible && (

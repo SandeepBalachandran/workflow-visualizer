@@ -13,7 +13,7 @@ import {
 } from 'react-icons/fa';
 import { BiExport, BiImport } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
-import {  AiFillDelete, AiOutlineGithub } from 'react-icons/ai';
+import { AiFillDelete, AiOutlineGithub } from 'react-icons/ai';
 const icons = new Map([
   ['close', <FaTimesCircle />],
   ['rightarrow', <FaCaretRight />],

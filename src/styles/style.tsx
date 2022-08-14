@@ -54,7 +54,6 @@ export const RightItemsContainer = styled.div`
   }
 `;
 
-
 export const Main = styled.div`
   // padding: 10px 5% 0;
   margin: auto;

@@ -5,7 +5,6 @@ import Header from '../components/common/header/Header';
 import Landing from '../components/Landing';
 import { Main } from '../styles/style';
 
-
 const Home: NextPage = () => {
   return (
     <>

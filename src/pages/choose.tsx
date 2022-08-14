@@ -1,12 +1,12 @@
-import React from 'react'
-import Options from '../components/Options'
+import React from 'react';
+import Options from '../components/Options';
 
 const choose = () => {
   return (
     <>
-    <Options/>
+      <Options />
     </>
-  )
-}
+  );
+};
 
-export default choose
+export default choose;

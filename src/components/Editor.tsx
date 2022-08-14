@@ -1,23 +1,17 @@
-import React from "react";
+import React from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   MiniMap,
   Controls,
   Background,
   useReactFlow,
-} from "react-flow-renderer";
-import DecisionNode from "./custom/DecisionNode/DecisionNode";
-import StartEndNode from "./custom/StartEndNode/StartEndNode";
-import ProcessNode from "./custom/ProcessNode/ProcessNode";
-import SideMenu from "./common/sideMenu/SideMenu";
-import useStore from "../store/store";
-import {
-  addNewNode,
-  nodeColor,
-  nodeStrokeColor,
-  edgeOptions,
-  flowstyle,
-} from "../helpers/helper";
+} from 'react-flow-renderer';
+import DecisionNode from './custom/DecisionNode/DecisionNode';
+import StartEndNode from './custom/StartEndNode/StartEndNode';
+import ProcessNode from './custom/ProcessNode/ProcessNode';
+import SideMenu from './common/sideMenu/SideMenu';
+import useStore from '../store/store';
+import { addNewNode, nodeColor, nodeStrokeColor, edgeOptions, flowstyle } from '../helpers/helper';
 
 let startNodeId = 1;
 let processNodeId = 7;
@@ -35,27 +29,25 @@ function Editor() {
   const addDecisionNode = () => {
     const id = `DecisionNode_${++decisionNodeId}`;
     const label = `Decision Node`;
-    const type = "decisionNode";
-    const nodeType = "decisionNode";
+    const type = 'decisionNode';
+    const nodeType = 'decisionNode';
     const newNode = addNewNode({ label, type, nodeType, id });
     reactFlowInstance.addNodes(newNode);
   };
 
   const addStartEndNode = (nodeType: string) => {
-    const id = nodeType
-      ? `StartNode_${++startNodeId}`
-      : `EndNode_${++endNodeId}`;
-    const label = nodeType ? "Start Node" : `End Node`;
-    const type = "startEndNode";
+    const id = nodeType ? `StartNode_${++startNodeId}` : `EndNode_${++endNodeId}`;
+    const label = nodeType ? 'Start Node' : `End Node`;
+    const type = 'startEndNode';
     const newNode = addNewNode({ label, type, nodeType, id });
     reactFlowInstance.addNodes(newNode);
   };
 
   const addProcessNode = () => {
     const id = `ProcessNode_${++processNodeId}`;
-    const label = "Process Node";
-    const type = "processNode";
-    const nodeType = "";
+    const label = 'Process Node';
+    const type = 'processNode';
+    const nodeType = '';
     const newNode = addNewNode({ label, type, nodeType, id });
     reactFlowInstance.addNodes(newNode);
   };
@@ -73,11 +65,7 @@ function Editor() {
           style={flowstyle}
           defaultEdgeOptions={edgeOptions}
         >
-          <MiniMap
-            nodeColor={nodeColor}
-            nodeStrokeColor={nodeStrokeColor}
-            nodeStrokeWidth={3}
-          />
+          <MiniMap nodeColor={nodeColor} nodeStrokeColor={nodeStrokeColor} nodeStrokeWidth={3} />
           <Controls />
           <Background color="#ecf0f3" />
         </ReactFlow>

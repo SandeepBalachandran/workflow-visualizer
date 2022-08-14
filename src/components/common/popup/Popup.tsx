@@ -1,7 +1,7 @@
 import React from 'react';
 import { getIcon } from '../../../utils/icons';
 
-const Popup = ({ title, show, onClose, children }:any) => {
+const Popup = ({ title, show, onClose, children }: any) => {
   const [visible, setVisibility] = React.useState(false);
   const closeHandler = () => {
     setVisibility(!visible);

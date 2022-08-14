@@ -42,7 +42,7 @@ const ImportJson = ({ closeHander, show, title, onImport }: any) => {
 
   return (
     <Popup onClose={closeHander} show={show} title={title}>
-      <div className="px-28 py-8 w-full flex flex-col justify-around gap-6 ">
+      <div className="px-4 md:px-28 py-8 w-full flex flex-col justify-around gap-6 ">
         <div className="relative drop-zone max-w-[400px] h-[300px] p-6 flex flex-col gap-10 items-center justify-center text-center font-bold text-sm  cursor-pointer border-dashed border-4 rounded ">
           <span className="drop-zone__prompt">Drop JSON file here or click to upload</span>
           {fileContent && (

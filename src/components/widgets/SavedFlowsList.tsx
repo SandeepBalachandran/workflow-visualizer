@@ -25,14 +25,14 @@ const SavedFlowsList = ({ menuLabel }: any) => {
     return newArray;
   };
 
-//   if (typeof window !== 'undefined') {
-//     window.addEventListener('storage', () => {
-//       if (localStorage.getItem('savedFlows')) {
-//         const saved = JSON.parse(localStorage.getItem('savedFlows')!);
-//         setWorkflows(makeStrcture(saved));
-//       }
-//     });
-//   }
+  //   if (typeof window !== 'undefined') {
+  //     window.addEventListener('storage', () => {
+  //       if (localStorage.getItem('savedFlows')) {
+  //         const saved = JSON.parse(localStorage.getItem('savedFlows')!);
+  //         setWorkflows(makeStrcture(saved));
+  //       }
+  //     });
+  //   }
 
   //   const setWorkflow = () => {
   //     const wf = getSavedWorkFlows();
@@ -52,7 +52,9 @@ const SavedFlowsList = ({ menuLabel }: any) => {
               <React.Fragment key={index}>
                 <div className="flex flex-row justify-between">
                   <div className="p-5 hover:bg-slate-100 cursor-pointer">{menuItem.name}</div>
-                  <div className='flex justify-center item-center p-6 text-red-700'><span className='cursor-pointer'>{getIcon('delete')}</span></div>
+                  <div className="flex justify-center item-center p-6 text-red-700">
+                    <span className="cursor-pointer">{getIcon('delete')}</span>
+                  </div>
                 </div>
               </React.Fragment>
             );

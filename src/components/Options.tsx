@@ -2,7 +2,6 @@ import React from 'react';
 import useStore from '../store/store';
 import Router from 'next/router';
 
-
 const Options = () => {
   const { deleteAll, setLabProcedureFlow } = useStore();
   const useFresh = () => {

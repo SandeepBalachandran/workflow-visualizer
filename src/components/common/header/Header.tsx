@@ -28,11 +28,11 @@ const Header: NextPage = () => {
             </Link>
           </div>
           <RightItemsContainer className="text-sm cursor-pointer">
-            <a className="nav-item" onClick={togglehandler}>
+            <a className="nav-item ease-in duration-100 hover:scale-125" onClick={togglehandler}>
               FAQ
             </a>
             <a
-              className="icon"
+              className="icon ease-in duration-100 hover:scale-125"
               href="https://github.com/SandeepBalachandran/workflow-visualizer/"
               target="_blank"
               rel="noreferrer"

@@ -39,7 +39,7 @@ export const Nav = styled.div`
 export const RightItemsContainer = styled.div`
   display: flex;
   align-items: center;
-  columng-gap: 2rem;
+  column-gap: 2rem;
   justify-content: space-between;
   column-gap: 1.5rem;
 
@@ -53,7 +53,6 @@ export const RightItemsContainer = styled.div`
     font-size: 2.5rem;
   }
 `;
-
 
 export const Main = styled.div`
   // padding: 10px 5% 0;

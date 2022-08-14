@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 const Wrapper = styled.div`
   position: relative;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
 `;
 
 const TooltipBody = styled.div`
@@ -61,7 +61,7 @@ const TooltipBody = styled.div`
   /* Absolute positioning */
   &.bottom {
     // bottom: calc(var(--tooltip-margin) * -1);
-    bottom:-60px
+    bottom: -60px;
   }
   /* CSS border triangles */
   &.bottom::before {

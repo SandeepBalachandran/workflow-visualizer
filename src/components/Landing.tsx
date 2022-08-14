@@ -26,7 +26,7 @@ const Landing: NextPage = () => {
             <div className="w-full text-center lg:text-left">
               <div
                 onClick={routeToEditor}
-                className="w-[200px] rounded p-3 my-6 bg-white text-[#155bd5] text-center font-bold hover:cursor-pointer inline-block"
+                className="w-[200px] rounded p-3 my-6 bg-white text-[#155bd5] text-center font-bold hover:cursor-pointer inline-block hover:animate-shake"
               >
                 Get Started
               </div>

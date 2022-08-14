@@ -1,16 +1,24 @@
-import React, { useState } from "react";
-import { Handle, Position } from "react-flow-renderer";
-import useStore from "../../../store/store";
+import React, { useState } from 'react';
+import { Handle, Position } from 'react-flow-renderer';
+import useStore from '../../../store/store';
 const handleStyle = { right: 0 };
 
-export default function ProcessNode({ id, data }: { id: string; data: { nodeType: string; label: string } }) {
+export default function ProcessNode({
+  id,
+  data,
+}: {
+  id: string;
+  data: { nodeType: string; label: string };
+}) {
   const [editOption, setEditOption] = useState(false);
   const [label, setLabel] = useState(data.label);
   const onUpdateNodeLabel = useStore((state: any) => state.updateNodeLabel);
   const enableEditHandle = () => {
     setEditOption(true);
   };
-  const onChangeHandler: React.ChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler: React.ChangeEventHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setLabel(event.target.value);
   };
 
@@ -23,7 +31,15 @@ export default function ProcessNode({ id, data }: { id: string; data: { nodeType
     <div className="node-wrapper process-node-wrapper shadow-xl rounded-xl  cursor-pointer ease-in duration-300 border-slate-600 border border-solid bg-[#784be8] text-white p-5">
       <Handle type="target" position={Position.Left} id="processHandle" style={handleStyle} />
       <div className="flex flex-col">
-        {editOption && <input type="text" className="p-3 text-center text-black w-full" onChange={onChangeHandler} onBlur={onBlurHandle} value={label} />}
+        {editOption && (
+          <input
+            type="text"
+            className="p-3 text-center text-black w-full"
+            onChange={onChangeHandler}
+            onBlur={onBlurHandle}
+            value={label}
+          />
+        )}
         {!editOption && (
           <h2 className="text-sm p-3 text-center" onClick={enableEditHandle}>
             {label}

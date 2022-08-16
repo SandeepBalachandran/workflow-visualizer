@@ -18,11 +18,9 @@ const useStore = create<any>(
       nodes: [],
       edges: [],
       onNodesChange: (changes: NodeChange[]) => {
-        // console.log(changes);
         set({
           nodes: applyNodeChanges(changes, get().nodes),
         });
-        // console.log(get().nodes)
       },
 
       onEdgesChange: (changes: EdgeChange[]) => {
@@ -49,8 +47,8 @@ const useStore = create<any>(
             return currentElement;
           }),
         });
-        console.log(get().nodes);
-        console.log(get().edges);
+        // console.log(get().nodes);
+        // console.log(get().edges);
       },
       deleteAll: () => {
         set({

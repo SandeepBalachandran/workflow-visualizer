@@ -35,7 +35,6 @@ const Toolbar: NextPage = () => {
   };
 
   const toggleSavePopup = () => {
-    console.log(nodes);
     if (nodes.length) {
       setSavePopupVisibility(!savePopupVisibility);
     } else {

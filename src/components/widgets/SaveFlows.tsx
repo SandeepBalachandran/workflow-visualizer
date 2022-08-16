@@ -7,18 +7,20 @@ const SaveFlows = ({ closeHander, show, title, onSave }: any) => {
   const { nodes, edges } = useStore();
 
   const save = () => {
-    setWorkflowname('');
-    const currentFlowState = { nodes, edges };
-    const savedFlows = JSON.parse(localStorage.getItem('savedFlows')!);
-    if (savedFlows) {
-      savedFlows[workflowName] = currentFlowState;
-      localStorage.setItem('savedFlows', JSON.stringify(savedFlows));
-    } else {
-      const newVal: any = {};
-      newVal[workflowName] = currentFlowState;
-      localStorage.setItem('savedFlows', JSON.stringify(newVal));
+    if (nodes) {
+      setWorkflowname('');
+      const currentFlowState = { nodes, edges };
+      const savedFlows = JSON.parse(localStorage.getItem('savedFlows')!);
+      if (savedFlows) {
+        savedFlows[workflowName] = currentFlowState;
+        localStorage.setItem('savedFlows', JSON.stringify(savedFlows));
+      } else {
+        const newVal: any = {};
+        newVal[workflowName] = currentFlowState;
+        localStorage.setItem('savedFlows', JSON.stringify(newVal));
+      }
+      onSave(false);
     }
-    onSave(false);
   };
 
   const close = () => {

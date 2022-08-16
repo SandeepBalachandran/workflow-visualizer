@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import React from 'react';
-import { Wrapper, TooltipBody } from './Tooltip.styles';
+import { Wrapper, TooltipBody } from '../../../styles/style';
 
 const Tooltip = ({ delay = 200, direction = 'top', content, children }: any) => {
   let timeout: any;

@@ -27,3 +27,11 @@ export interface dropdownItems {
   name: string;
   method: any;
 }
+
+export type ToastList = {
+  title: string;
+  description?: string;
+  backgroundColor?: string;
+  icon?: string;
+  type: string;
+};

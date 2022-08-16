@@ -10,6 +10,7 @@ import { getIcon } from '../utils/icons';
 // import SavedFlowsList from './widgets/savedFlowsList';
 import { dropdownItems } from '../models/models';
 import MenuDropdown from './widgets/MenuDropdown';
+import SavedFlowsList from './widgets/SavedFlowsList';
 
 const Toolbar: NextPage = () => {
   const { nodes, edges, deleteAll } = useStore();
@@ -34,19 +35,19 @@ const Toolbar: NextPage = () => {
   };
 
   const toggleSavePopup = () => {
-    setSavePopupVisibility(!savePopupVisibility);
+    console.log(nodes);
+    if (nodes.length) {
+      setSavePopupVisibility(!savePopupVisibility);
+    } else {
+      alert('Add nodes to save');
+    }
   };
 
   const dropdownItems: dropdownItems[] = [
     {
       id: 1,
-      name: 'Create New',
+      name: 'Themes',
       method: createNew,
-    },
-    {
-      id: 2,
-      name: 'Templates',
-      method: toggleTemplatesPopup,
     },
   ];
 
@@ -84,6 +85,8 @@ const Toolbar: NextPage = () => {
   };
   const print = () => {};
 
+  const random: any = Math.random() * 3 + 1;
+
   return (
     <>
       <div className="w-full flex flex-row justify-between fixed top-0 z-50">
@@ -107,6 +110,16 @@ const Toolbar: NextPage = () => {
                 {getIcon('plus')}
               </div>
             </Tooltip>
+
+            <Tooltip content="Save" direction="bottom">
+              <div
+                className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
+                onClick={toggleSavePopup}
+              >
+                <span className=""> {getIcon('save')}</span>
+              </div>
+            </Tooltip>
+
             <Tooltip content="Templates" direction="bottom">
               <div
                 className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
@@ -122,15 +135,6 @@ const Toolbar: NextPage = () => {
                 onClick={print}
               >
                 <span className="text-[#ccc]"> {getIcon('print')}</span>
-              </div>
-            </Tooltip>
-
-            <Tooltip content="Save" direction="bottom">
-              <div
-                className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
-                onClick={toggleSavePopup}
-              >
-                <span className=""> {getIcon('save')}</span>
               </div>
             </Tooltip>
 
@@ -155,6 +159,7 @@ const Toolbar: NextPage = () => {
               <MenuDropdown
                 menuLabel={<span className="text-[#ccc] "> {getIcon('settings')}</span>}
                 items={dropdownItems}
+                key={random}
               />
             </Tooltip>
           </div>
@@ -181,9 +186,12 @@ const Toolbar: NextPage = () => {
             </span>
           )}
 
-          {/* <Tooltip content="Saved Workflows" direction="bottom">
-            <SavedFlowsList menuLabel={<span className="text-[#ccc]"> {getIcon('folder')}</span>} />
-          </Tooltip> */}
+          <Tooltip content="Saved Workflows" direction="bottom">
+            <SavedFlowsList
+              menuLabel={<span className=""> {getIcon('folder')}</span>}
+              key={random}
+            />
+          </Tooltip>
         </div>
       </div>
 

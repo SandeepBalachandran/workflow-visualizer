@@ -25,44 +25,52 @@ const SavedFlowsList = ({ menuLabel }: any) => {
     return newArray;
   };
 
-  //   if (typeof window !== 'undefined') {
-  //     window.addEventListener('storage', () => {
-  //       if (localStorage.getItem('savedFlows')) {
-  //         const saved = JSON.parse(localStorage.getItem('savedFlows')!);
-  //         setWorkflows(makeStrcture(saved));
-  //       }
-  //     });
-  //   }
-
-  //   const setWorkflow = () => {
-  //     const wf = getSavedWorkFlows();
-  //     setWorkflows(wf);
-  //     console.log(wf);
-  //     setCustom();
-  //   };
-
-  //   const chooseWorkflow = (item: any) => {};
+  const setWorkflow = ({ nodes, edges }: any) => {
+    setCustom({ nodes, edges });
+  };
+  const deleteItem = (menuItem: any) => {
+    if (localStorage.getItem('savedFlows')) {
+      const saved = JSON.parse(localStorage.getItem('savedFlows')!);
+      delete saved[menuItem['name']];
+      if (Object.keys(saved).length) {
+        localStorage.setItem('savedFlows', JSON.stringify(saved));
+        setWorkflows(makeStrcture(saved));
+      } else {
+        localStorage.removeItem('savedFlows');
+        setWorkflows([]);
+      }
+    }
+  };
 
   return (
     <>
       <Dropdown menuLabel={menuLabel}>
-        {workflows ? (
+        {Boolean(workflows.length) &&
           workflows.map((menuItem: any, index: number) => {
             return (
               <React.Fragment key={index}>
-                <div className="flex flex-row justify-between">
-                  <div className="p-5 hover:bg-slate-100 cursor-pointer">{menuItem.name}</div>
+                <div className="flex flex-row justify-between hover:bg-slate-100 cursor-pointer">
+                  <div className="p-5 " onClick={() => setWorkflow(menuItem)}>
+                    {menuItem.name}
+                  </div>
                   <div className="flex justify-center item-center p-6 text-red-700">
-                    <span className="cursor-pointer">{getIcon('delete')}</span>
+                    <span className="cursor-pointer" onClick={() => deleteItem(menuItem)}>
+                      {getIcon('delete')}
+                    </span>
                   </div>
                 </div>
               </React.Fragment>
             );
-          })
-        ) : (
-          <>
-            <div className="p-4 hover:bg-slate-100 cursor-pointer">No Saved items</div>
-          </>
+          })}
+        {Boolean(!workflows.length) && (
+          <React.Fragment>
+            <div className="flex flex-row justify-between hover:bg-slate-100 cursor-pointer">
+              <div className="p-5 text-[#7c7c7c] flex flex-col justify-center gap-3">
+                <span className="flex justify-center">{getIcon('happy')}</span>
+                <span>No items</span>
+              </div>
+            </div>
+          </React.Fragment>
         )}
       </Dropdown>
     </>

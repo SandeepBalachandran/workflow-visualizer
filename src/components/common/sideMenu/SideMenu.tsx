@@ -1,17 +1,18 @@
 import React from 'react';
 import Tooltip from '../tooltip/Tooltip';
 
+type sideMenuProps = {
+  onAddDecisionNode: any;
+  onAddStartNode: any;
+  onAddEndNode: any;
+  onAddProcessNode: any;
+};
 const SideMenu = ({
   onAddDecisionNode,
   onAddStartNode,
   onAddEndNode,
   onAddProcessNode,
-}: {
-  onAddDecisionNode: any;
-  onAddStartNode: any;
-  onAddEndNode: any;
-  onAddProcessNode: any;
-}) => {
+}: sideMenuProps) => {
   const onNodeAdd = (nodeType: string): void => {
     switch (nodeType) {
       case 'startNode':

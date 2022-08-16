@@ -10,7 +10,7 @@ type Props = {
   autoDeleteTime?: number;
 };
 
-const chooseIcon = (type: any) => {
+const chooseIcon = (type: string) => {
   const icons: { [index: string]: any } = {
     success: getIcon('success'),
     error: getIcon('error'),
@@ -20,7 +20,7 @@ const chooseIcon = (type: any) => {
   return icons[type];
 };
 
-const chooseColor = (type: any) => {
+const chooseColor = (type: string) => {
   const colors: { [index: string]: any } = {
     success: '#5cb85c',
     error: '#d9534f',

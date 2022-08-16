@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Dropdown = (props: any) => {
+type dropdownProps = {
+  menuLabel: string;
+  children: React.ReactNode;
+};
+const Dropdown = (props: dropdownProps) => {
   const [visible, setVisibility] = React.useState(false);
   const menuClick = () => {
     setVisibility(!visible);

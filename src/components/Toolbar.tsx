@@ -7,7 +7,6 @@ import Templates from './widgets/Templates';
 import ImportJson from './widgets/ImportJson';
 import SaveFlows from './widgets/SaveFlows';
 import { getIcon } from '../utils/icons';
-// import SavedFlowsList from './widgets/savedFlowsList';
 import { dropdownItems } from '../models/models';
 import MenuDropdown from './widgets/MenuDropdown';
 import SavedFlowsList from './widgets/SavedFlowsList';
@@ -84,7 +83,7 @@ const Toolbar: NextPage = () => {
   };
   const print = () => {};
 
-  const random: any = Math.random() * 3 + 1;
+  const random: number = Math.random() * 3 + 1;
 
   return (
     <>

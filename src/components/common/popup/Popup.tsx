@@ -4,7 +4,7 @@ import { getIcon } from '../../../utils/icons';
 type popupProps = {
   title: string;
   show: boolean;
-  onClose: (value: boolean) => boolean;
+  onClose: any;
   children: React.ReactNode;
 };
 const Popup = ({ title, show, onClose, children }: popupProps) => {

@@ -14,6 +14,13 @@ import {
 import { BiExport, BiImport } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
 import { AiFillDelete, AiOutlineGithub } from 'react-icons/ai';
+import {
+  BsExclamationCircleFill,
+  BsInfoCircleFill,
+  BsFillExclamationTriangleFill,
+  BsCheckCircleFill,
+} from 'react-icons/bs';
+
 const icons = new Map([
   ['close', <FaTimesCircle />],
   ['rightarrow', <FaCaretRight />],
@@ -31,6 +38,10 @@ const icons = new Map([
   ['happy', <FaSmile />],
   ['delete', <AiFillDelete />],
   ['github', <AiOutlineGithub />],
+  ['success', <BsCheckCircleFill />],
+  ['error', <BsExclamationCircleFill />],
+  ['info', <BsInfoCircleFill />],
+  ['warning', <BsFillExclamationTriangleFill />],
 ]);
 
 export function getIcon(iconName: string) {

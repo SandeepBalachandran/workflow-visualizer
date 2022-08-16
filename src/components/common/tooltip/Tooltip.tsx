@@ -1,8 +1,15 @@
 import { NextPage } from 'next';
 import React from 'react';
-import { Wrapper, TooltipBody } from './Tooltip.styles';
+import { Wrapper, TooltipBody } from '../../../styles/style';
 
-const Tooltip = ({ delay = 200, direction = 'top', content, children }: any) => {
+type tooltipProps = {
+  delay?: number;
+  direction: string;
+  content: React.ReactNode;
+  children: React.ReactNode;
+};
+
+const Tooltip = ({ delay = 200, direction = 'top', content, children }: tooltipProps) => {
   let timeout: any;
   const [active, setActive] = React.useState(false);
   const showTip = () => {

@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Dropdown = (props: any) => {
+type dropdownProps = {
+  menuLabel: string;
+  children: React.ReactNode;
+};
+const Dropdown = (props: dropdownProps) => {
   const [visible, setVisibility] = React.useState(false);
   const menuClick = () => {
     setVisibility(!visible);
@@ -15,7 +19,9 @@ const Dropdown = (props: any) => {
           {props.menuLabel}
         </div>
         {visible && (
-          <div className="w-max top-10 absolute bg-white rounded shadow-lg">{props.children}</div>
+          <div className="w-max top-10 absolute bg-white rounded shadow-lg max-h-[300px] overflow-auto">
+            {props.children}
+          </div>
         )}
       </div>
     </>

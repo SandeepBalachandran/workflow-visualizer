@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pretty-quick": "pretty-quick --check",
-    "prepare": "husky install"
+    "pretty-quick": "pretty-quick --staged",
+    "prepare": "husky install",
+    "pre-commit": "yarn lint &&  yarn pretty-quick"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

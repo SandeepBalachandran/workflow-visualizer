@@ -1,17 +1,18 @@
 import React from 'react';
 import Tooltip from '../tooltip/Tooltip';
 
+type sideMenuProps = {
+  onAddDecisionNode: any;
+  onAddStartNode: any;
+  onAddEndNode: any;
+  onAddProcessNode: any;
+};
 const SideMenu = ({
   onAddDecisionNode,
   onAddStartNode,
   onAddEndNode,
   onAddProcessNode,
-}: {
-  onAddDecisionNode: any;
-  onAddStartNode: any;
-  onAddEndNode: any;
-  onAddProcessNode: any;
-}) => {
+}: sideMenuProps) => {
   const onNodeAdd = (nodeType: string): void => {
     switch (nodeType) {
       case 'startNode':
@@ -39,7 +40,7 @@ const SideMenu = ({
             <Tooltip content="Start Node" direction="right">
               <div
                 onClick={() => onNodeAdd('startNode')}
-                className="cursor-pointer ease-in duration-100 hover:scale-125 border-2 rounded-full border-[#2fa4be] border-solid bg-white w-[30px]  mx-auto p-2 m-4  "
+                className="cursor-pointer ease-in duration-100 hover:scale-125 border-2 rounded-full border-[#000000] border-solid bg-white w-[30px]  mx-auto p-2 m-4  "
               ></div>
             </Tooltip>
           </div>
@@ -48,7 +49,7 @@ const SideMenu = ({
             <Tooltip content="Process Node" direction="right">
               <div
                 onClick={() => onNodeAdd('processNode')}
-                className="cursor-pointer ease-in duration-100 hover:scale-125 border-2  border-[#2fa4be] border-solid bg-white w-[30px] mx-auto p-2 m-4  "
+                className="cursor-pointer ease-in duration-100 hover:scale-125 border-2  border-[#000000] border-solid bg-white w-[30px] mx-auto p-2 m-4  "
               ></div>
             </Tooltip>
           </div>
@@ -57,7 +58,7 @@ const SideMenu = ({
             <Tooltip content="Decision Node" direction="right">
               <div
                 onClick={() => onNodeAdd('decisionNode')}
-                className="cursor-pointer ease-in duration-100 hover:scale-125 border-2 rotate-45	 border-[#2fa4be] border-solid bg-white w-[25px] h-[25px] p-2 ml-6 my-6 mr-6  "
+                className="cursor-pointer ease-in duration-100 hover:scale-125 border-2 rotate-45	 border-[#000000] border-solid bg-white w-[25px] h-[25px] p-2 ml-6 my-6 mr-6  "
               ></div>
             </Tooltip>
           </div>
@@ -66,7 +67,7 @@ const SideMenu = ({
             <Tooltip content="End Node" direction="right">
               <div
                 onClick={() => onNodeAdd('endNode')}
-                className="cursor-pointer ease-in duration-100 hover:scale-125 border-2  border-[#2fa4be] border-solid rounded-full bg-white w-[30px] mx-auto p-2 m-4  "
+                className="cursor-pointer ease-in duration-100 hover:scale-125 border-2  border-[#000000] border-solid rounded-full bg-white w-[30px] mx-auto p-2 m-4  "
               ></div>
             </Tooltip>
           </div>

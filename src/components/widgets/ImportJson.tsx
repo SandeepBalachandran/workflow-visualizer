@@ -14,7 +14,6 @@ const ImportJson = ({ closeHander, show, title, onImport }: any) => {
     e?.stopPropagation();
     setFileContent('');
     setFileName('');
-    console.log(fileName, fileContent);
   };
 
   const handleJsonImport = (e: any) => {
@@ -30,9 +29,7 @@ const ImportJson = ({ closeHander, show, title, onImport }: any) => {
     }
   };
 
-  const handleDrop = (e: any) => {
-    console.log(e);
-  };
+  const handleDrop = (e: any) => {};
 
   const importJson = (event: any) => {
     setCustom(fileContent);

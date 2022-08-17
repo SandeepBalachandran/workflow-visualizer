@@ -49,7 +49,7 @@ const SavedFlowsList = ({ menuLabel }: any) => {
           workflows.map((menuItem: any, index: number) => {
             return (
               <React.Fragment key={index}>
-                <div className="flex flex-row justify-between hover:bg-slate-100 cursor-pointer">
+                <div className="flex flex-row justify-between hover:bg-slate-100 cursor-pointer border-b-slate-200 border">
                   <div className="p-5 " onClick={() => setWorkflow(menuItem)}>
                     {menuItem.name}
                   </div>

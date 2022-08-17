@@ -1,4 +1,5 @@
 import React from 'react';
+import useComponentVisible from '../../../helpers/checkOutsideclick';
 
 type dropdownProps = {
   menuLabel: string;
@@ -8,7 +9,9 @@ const Dropdown = (props: dropdownProps) => {
   const [visible, setVisibility] = React.useState(false);
   const menuClick = () => {
     setVisibility(!visible);
+    setIsComponentVisible(!visible);
   };
+  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(true);
   return (
     <>
       <div className="relative  z-[220]">
@@ -18,8 +21,11 @@ const Dropdown = (props: dropdownProps) => {
         >
           {props.menuLabel}
         </div>
-        {visible && (
-          <div className="w-max top-10 absolute bg-white rounded shadow-lg max-h-[300px] overflow-auto">
+        {isComponentVisible && (
+          <div
+            className="w-max top-10 absolute bg-white rounded shadow-lg max-h-[300px] max-w-[300px] overflow-auto animate-dropdown"
+            ref={ref}
+          >
             {props.children}
           </div>
         )}

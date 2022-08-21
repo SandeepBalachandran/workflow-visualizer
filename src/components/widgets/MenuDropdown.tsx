@@ -8,7 +8,10 @@ const MenuDropdown = ({ menuLabel, items }: any) => {
         {items.map((menuItem: any, index: number) => {
           return (
             <React.Fragment key={index}>
-              <div className="p-4 hover:bg-slate-100 cursor-pointer" onClick={menuItem.method}>
+              <div
+                className="p-4 hover:bg-slate-100 cursor-pointer border-b-slate-200 border"
+                onClick={menuItem.method}
+              >
                 {menuItem.name}
               </div>
             </React.Fragment>

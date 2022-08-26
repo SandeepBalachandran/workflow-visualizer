@@ -10,6 +10,7 @@ import {
   FaUserAltSlash,
   FaUserClock,
   FaSmile,
+  FaProjectDiagram,
 } from 'react-icons/fa';
 import { BiExport, BiImport } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
@@ -42,6 +43,7 @@ const icons = new Map([
   ['error', <BsExclamationCircleFill />],
   ['info', <BsInfoCircleFill />],
   ['warning', <BsFillExclamationTriangleFill />],
+  ['diagram', <FaProjectDiagram />],
 ]);
 
 export function getIcon(iconName: string) {

@@ -16,7 +16,7 @@ const Header: NextPage = () => {
     <>
       <Nav className="ease-in-out duration-300">
         <Container>
-          <div className="w-[10%] p-2">
+          <div className="w-fit p-2">
             <Link href="/">
               <Image
                 src={Logo}

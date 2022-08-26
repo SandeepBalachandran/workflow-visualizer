@@ -50,6 +50,9 @@ const SavedFlowsList = ({ menuLabel }: any) => {
             return (
               <React.Fragment key={index}>
                 <div className="flex flex-row justify-between hover:bg-slate-100 cursor-pointer border-b-slate-200 border">
+                  <div className="p-5">
+                    <span className="">{getIcon('diagram')}</span>
+                  </div>
                   <div className="p-5 " onClick={() => setWorkflow(menuItem)}>
                     {menuItem.name}
                   </div>

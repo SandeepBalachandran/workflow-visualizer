@@ -8,7 +8,6 @@ type dropdownProps = {
 const Dropdown = (props: dropdownProps) => {
   const [visible, setVisibility] = React.useState(false);
   const menuClick = () => {
-    debugger;
     setVisibility(true);
     setIsComponentVisible(true);
   };

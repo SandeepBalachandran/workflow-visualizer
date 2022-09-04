@@ -8,8 +8,8 @@ import useStore from '../store/store';
 import { getIcon } from '../utils/icons';
 import { Container } from '../styles/style';
 
+// import DemoContainer from './Demo';
 const Landing: NextPage = () => {
-  // const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore();
   const routeToEditor = () => {
     isInProgress() ? Router.push('/editor') : Router.push('/choose');
   };
@@ -49,6 +49,8 @@ const Landing: NextPage = () => {
           </div>
           <div className="bg-white p-8 rounded-xl  border-black border-2 text-center">
             <Image src={Logo} alt="logo" height="400px" width="400px" />
+            {/* // Todo - Landing page demo - WIP */}
+            {/* <DemoContainer/> */}
           </div>
         </div>
       </Container>

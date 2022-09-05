@@ -37,12 +37,12 @@ const Toolbar: NextPage = () => {
     {
       id: 1,
       name: 'Themes',
-      method: createNew,
+      method: null,
     },
   ];
   const [state, setState] = React.useState({
     toggleLeftBar: false,
-    toggleRightBar: false,
+    toggleRightBar: true,
     toggleTemplatePopup: false,
     toggleImportPopup: false,
     toggleSavePopup: false,

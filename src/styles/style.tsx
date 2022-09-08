@@ -207,6 +207,13 @@ export const ToastBody = styled.div`
   }
 
   @keyframes bounceInDown {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
     0% {
       opacity: 0;
       transform: translate3d(0, -3000px, 0);

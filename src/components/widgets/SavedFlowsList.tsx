@@ -25,8 +25,13 @@ const SavedFlowsList = ({ menuLabel }: any) => {
     return newArray;
   };
 
-  const setWorkflow = ({ nodes, edges }: any) => {
+  const setWorkflow = ({ name, nodes, edges }: any) => {
     setCustom({ nodes, edges });
+    const desc = onAddToastMsg({
+      title: 'Perfect',
+      description: `Workflow ${name} Applied successfully`,
+      type: 'success',
+    });
   };
   const deleteItem = (menuItem: any) => {
     if (localStorage.getItem('savedFlows')) {

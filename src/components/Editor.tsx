@@ -72,7 +72,7 @@ function Editor() {
             className="shadow-lg rounded bg-white"
           />
           <Controls className="!shadow-lg !rounded bg-white !left-3" />
-          <Background color="#ecf0f3" variant="dots" />
+          <Background color="#ecf0f3" />
         </ReactFlow>
         <SideMenu
           onAddStartNode={(type: string) => addStartEndNode(type)}

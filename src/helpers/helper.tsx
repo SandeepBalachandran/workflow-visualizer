@@ -62,11 +62,11 @@ const edgeOptions: DefaultEdgeOptions = {
   },
   markerEnd: { type: MarkerType.ArrowClosed, color: 'black' },
   className: 'customArrow',
-  type: 'step',
+  type: 'smoothstep',
 };
 
 const flowstyle = {
-  backgroundColor: '#B8CEFF',
+  backgroundColor: '#0078d47a',
 };
 
 const isInProgress = () => {

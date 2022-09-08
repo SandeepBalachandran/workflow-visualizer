@@ -27,6 +27,15 @@ export default function ProcessNode({
     onUpdateNodeLabel(label, id);
   };
 
+  const handleKeyDown: React.ChangeEventHandler = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (event.key === 'Enter') {
+      setEditOption(false);
+      onUpdateNodeLabel(label, id);
+    }
+  };
+
   return (
     <div className="node-wrapper process-node-wrapper shadow-xl rounded-xl  cursor-pointer ease-in duration-300 border-slate-600 border border-solid bg-[#784be8] text-white p-5">
       <Handle type="target" position={Position.Left} id="processHandle" style={handleStyle} />
@@ -34,10 +43,11 @@ export default function ProcessNode({
         {editOption && (
           <input
             type="text"
-            className="p-3 text-center text-black w-full"
+            className="p-3 text-center bg-[#784be8] w-full"
             onChange={onChangeHandler}
             onBlur={onBlurHandle}
             value={label}
+            onKeyDown={handleKeyDown}
           />
         )}
         {!editOption && (

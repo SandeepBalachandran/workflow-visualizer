@@ -25,6 +25,15 @@ export default function DecisionNode({
     setEditOption(false);
     onUpdateNodeLabel(label, id);
   };
+
+  const handleKeyDown: React.ChangeEventHandler = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (event.key === 'Enter') {
+      setEditOption(false);
+      onUpdateNodeLabel(label, id);
+    }
+  };
   return (
     <div className="node-wrapper  shadow-xl rounded-xl  cursor-pointer ease-in duration-300 border-slate-600 border border-solid bg-[#ff653b] p-5 w-[150px] h-[150px]  text-[#fff] rotate-45">
       <div className="w-[100px] h-[100px] -rotate-45">
@@ -42,10 +51,11 @@ export default function DecisionNode({
         ></Handle>
         <div className="flex flex-col">
           {editOption && (
-            <textarea
-              className="p-3 text-center text-black w-full"
+            <input
+              className="p-3 text-center bg-[#ff653b] w-full"
               onChange={onChangeHandler}
               onBlur={onBlurHandle}
+              onKeyDown={handleKeyDown}
               value={label}
             />
           )}

@@ -10,13 +10,14 @@ import {
 import { persist } from 'zustand/middleware';
 import initialNodes from '../utils/nodes';
 import initialEdges from '../utils/edges';
-import { newNode } from '../models/models';
+import { newNode, ToastList } from '../models/models';
 
 const useStore = create<any>(
   persist(
     (set, get) => ({
       nodes: [],
       edges: [],
+      toastList: [],
       onNodesChange: (changes: NodeChange[]) => {
         set({
           nodes: applyNodeChanges(changes, get().nodes),
@@ -47,6 +48,7 @@ const useStore = create<any>(
             return currentElement;
           }),
         });
+
         // console.log(get().nodes);
         // console.log(get().edges);
       },
@@ -66,6 +68,11 @@ const useStore = create<any>(
         set({
           nodes,
           edges,
+        });
+      },
+      onAddToastMsg: (toastInfo: ToastList) => {
+        set({
+          toastList: [toastInfo],
         });
       },
     }),

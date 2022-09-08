@@ -6,10 +6,7 @@ type dropdownProps = {
   children: React.ReactNode;
 };
 const Dropdown = (props: dropdownProps) => {
-  const [visible, setVisibility] = React.useState(false);
   const menuClick = () => {
-    debugger;
-    setVisibility(true);
     setIsComponentVisible(true);
   };
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(true);
@@ -24,7 +21,7 @@ const Dropdown = (props: dropdownProps) => {
         </div>
         {isComponentVisible && (
           <div
-            className="w-max top-10 absolute bg-white rounded shadow-lg max-h-[300px] max-w-[300px] overflow-auto animate-dropdown"
+            className="w-max top-10 -right-1 absolute bg-white rounded shadow-lg max-h-[300px] max-w-[300px] overflow-auto animate-dropdown"
             ref={ref}
           >
             {props.children}

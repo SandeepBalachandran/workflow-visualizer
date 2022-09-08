@@ -65,9 +65,14 @@ function Editor() {
           style={flowstyle}
           defaultEdgeOptions={edgeOptions}
         >
-          <MiniMap nodeColor={nodeColor} nodeStrokeColor={nodeStrokeColor} nodeStrokeWidth={3} />
-          <Controls />
-          <Background color="#ecf0f3" />
+          <MiniMap
+            nodeColor={nodeColor}
+            nodeStrokeColor={nodeStrokeColor}
+            nodeStrokeWidth={3}
+            className="shadow-lg rounded bg-white"
+          />
+          <Controls className="!shadow-lg !rounded bg-white !left-3" />
+          <Background color="#ecf0f3" variant="dots" />
         </ReactFlow>
         <SideMenu
           onAddStartNode={(type: string) => addStartEndNode(type)}

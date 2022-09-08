@@ -4,7 +4,7 @@ import { getIcon } from '../../utils/icons';
 import Dropdown from '../common/dropdown/Dropdown';
 
 const SavedFlowsList = ({ menuLabel }: any) => {
-  const { nodes, edges, deleteAll, setLabProcedureFlow, setCustom } = useStore();
+  const { nodes, edges, deleteAll, setLabProcedureFlow, onAddToastMsg, setCustom } = useStore();
   const [workflows, setWorkflows] = React.useState([]);
 
   React.useEffect(() => {
@@ -40,6 +40,11 @@ const SavedFlowsList = ({ menuLabel }: any) => {
         setWorkflows([]);
       }
     }
+    onAddToastMsg({
+      title: 'No more!',
+      description: 'Workflow Deleted successfully',
+      type: 'success',
+    });
   };
 
   return (

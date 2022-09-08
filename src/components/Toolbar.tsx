@@ -12,7 +12,7 @@ import MenuDropdown from './widgets/MenuDropdown';
 import SavedFlowsList from './widgets/SavedFlowsList';
 
 const Toolbar: NextPage = () => {
-  const { nodes, edges, deleteAll } = useStore();
+  const { nodes, edges, deleteAll, onAddToastMsg } = useStore();
   const createNew = () => {
     deleteAll();
   };
@@ -32,6 +32,24 @@ const Toolbar: NextPage = () => {
   //     alert('Add nodes to save');
   //   }
   // };
+
+  const afterSaved = () => {
+    toggle('toggleSavePopup');
+    onAddToastMsg({
+      title: 'Yup',
+      description: 'Workflow Saved successfully',
+      type: 'success',
+    });
+  };
+
+  const afterImported = () => {
+    toggle('toggleImportPopup');
+    onAddToastMsg({
+      title: 'Hooray!',
+      description: 'Workflow Imported successfully',
+      type: 'success',
+    });
+  };
 
   const dropdownItems: dropdownItems[] = [
     {
@@ -207,14 +225,14 @@ const Toolbar: NextPage = () => {
         closeHander={() => toggle('toggleImportPopup')}
         show={state.toggleImportPopup}
         title="Import Json"
-        onImport={() => toggle('toggleSavePopup')}
+        onImport={afterImported}
       />
 
       <SaveFlows
         closeHander={() => toggle('toggleSavePopup')}
         show={state.toggleSavePopup}
         title="Save Workflow"
-        onSave={() => toggle('toggleSavePopup')}
+        onSave={afterSaved}
       />
     </>
   );

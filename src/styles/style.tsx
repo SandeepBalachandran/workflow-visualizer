@@ -180,6 +180,13 @@ export const ToastBody = styled.div`
     transition: transform 0.6s ease-in;
     animation: toast-in-left 0.7s;
   }
+  &.top-center {
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.6s ease-in;
+    animation: bounceInDown 0.7s;
+  }
 
   @keyframes toast-in-right {
     from {
@@ -196,6 +203,26 @@ export const ToastBody = styled.div`
     }
     to {
       transform: translateX(0);
+    }
+  }
+
+  @keyframes bounceInDown {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -3000px, 0);
+    }
+    60% {
+      opacity: 1;
+      transform: translate3d(0, 25px, 0);
+    }
+    75% {
+      transform: translate3d(0, -10px, 0);
+    }
+    90% {
+      transform: translate3d(0, 5px, 0);
+    }
+    to {
+      transform: none;
     }
   }
 `;

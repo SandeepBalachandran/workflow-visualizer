@@ -27,7 +27,7 @@ export default function StartEndNode({
     onUpdateNodeLabel(label, id);
   };
 
-  const handleKeyDown: React.ChangeEventHandler = (
+  const handleKeyDown: React.KeyboardEventHandler = (
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if (event.key === 'Enter') {
@@ -42,7 +42,7 @@ export default function StartEndNode({
         {editOption && (
           <input
             type="text"
-            className="p-3 text-center  bg-black"
+            className="p-3 text-center bg-black nodrag"
             onChange={onChangeHandler}
             onBlur={onBlurHandle}
             onKeyDown={handleKeyDown}
@@ -50,7 +50,7 @@ export default function StartEndNode({
           />
         )}
         {!editOption && (
-          <h2 className="text-sm p-3 text-center" onClick={enableEditHandle}>
+          <h2 className="p-3 text-sm text-center" onClick={enableEditHandle}>
             {label}
           </h2>
         )}

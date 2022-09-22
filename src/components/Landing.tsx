@@ -17,8 +17,8 @@ const Landing: NextPage = () => {
   return (
     <>
       <Container>
-        <div className="w-full flex flex-col lg:flex-row justify-between mb-8 md:mb-0">
-          <div className="flex flex-col align-middle justify-center my-15 text-center lg:text-left">
+        <div className="flex flex-col justify-between w-full mb-8 lg:flex-row md:mb-0">
+          <div className="flex flex-col justify-center text-center align-middle my-15 lg:text-left">
             <h1 className="lg:leading-[1.25] text-4xl lg:text-6xl my-2 ">
               Build your workflow <br />
               in no time
@@ -26,28 +26,28 @@ const Landing: NextPage = () => {
             <div className="w-full text-center lg:text-left">
               <div
                 onClick={routeToEditor}
-                className="w-[200px] rounded p-3 my-6 bg-white text-[#155bd5] text-center font-bold hover:cursor-pointer inline-block hover:animate-shake"
+                className="actionBtn relative w-[150px] rounded p-3 my-6 bg-white text-[#155bd5] text-center font-bold hover:cursor-pointer inline-block transition-all	duration-75 "
               >
                 Get Started
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-between sm:my-20">
-              <div className="text-center my-5 sm:my-0">
-                <span className="text-3xl flex justify-center">{getIcon('noregistration')}</span>
+            <div className="flex flex-col justify-between sm:flex-row sm:my-20">
+              <div className="my-5 text-center sm:my-0">
+                <span className="flex justify-center text-3xl">{getIcon('noregistration')}</span>
                 <h2 className="my-3">No signup/signin</h2>
               </div>
-              <div className="text-center my-5 sm:my-0">
-                <span className="text-3xl flex justify-center">{getIcon('fast')}</span>
+              <div className="my-5 text-center sm:my-0">
+                <span className="flex justify-center text-3xl">{getIcon('fast')}</span>
                 <h2 className="my-3">Build in minutes</h2>
               </div>
-              <div className="text-center my-5 sm:my-0">
-                <span className="text-3xl flex justify-center">{getIcon('happy')}</span>
+              <div className="my-5 text-center sm:my-0">
+                <span className="flex justify-center text-3xl">{getIcon('happy')}</span>
                 <h2 className="my-3">Fit for your needs</h2>
               </div>
             </div>
           </div>
-          <div className="bg-white p-8 rounded-xl  border-black border-2 text-center">
+          <div className="p-8 text-center bg-white border-2 border-black rounded-xl">
             <Image src={Logo} alt="logo" height="400px" width="400px" />
             {/* // Todo - Landing page demo - WIP */}
             {/* <DemoContainer/> */}

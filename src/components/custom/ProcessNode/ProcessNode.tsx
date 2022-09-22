@@ -27,7 +27,7 @@ export default function ProcessNode({
     onUpdateNodeLabel(label, id);
   };
 
-  const handleKeyDown: React.ChangeEventHandler = (
+  const handleKeyDown: React.KeyboardEventHandler = (
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if (event.key === 'Enter') {
@@ -43,7 +43,7 @@ export default function ProcessNode({
         {editOption && (
           <input
             type="text"
-            className="p-3 text-center bg-[#784be8] w-full"
+            className="p-3 text-center bg-[#784be8] w-full nodrag"
             onChange={onChangeHandler}
             onBlur={onBlurHandle}
             value={label}
@@ -51,7 +51,7 @@ export default function ProcessNode({
           />
         )}
         {!editOption && (
-          <h2 className="text-sm p-3 text-center" onClick={enableEditHandle}>
+          <h2 className="p-3 text-sm text-center" onClick={enableEditHandle}>
             {label}
           </h2>
         )}

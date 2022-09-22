@@ -20,7 +20,43 @@ body {
   /* Note: Application is done by using  React Flow - https://reactflow.dev/ . Check it out*/
   display: none;
 }
+
+.react-flow .react-flow__handle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  background-color: #ffffff;
+}
+.react-flow .react-flow__edge path,
+.react-flow__connectionline path {
+  stroke-width: 3;
+  stroke: #ffffff;
+}
+.wrapper {
+  flex-grow: 1;
+  height: 100%;
+}
 .selected .node-wrapper {
   box-shadow: 0 0 0 0.5px #1a192b;
   border: 2px solid #1a192b;
+}
+
+.actionBtn:after {
+  content: '»';
+  font-size: 25px;
+  position: absolute;
+  opacity: 0;
+  top: 5px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.actionBtn:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.actionBtn:hover:after {
+  opacity: 1;
+  right: 10px;
 }

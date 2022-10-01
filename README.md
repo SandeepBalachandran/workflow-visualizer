@@ -45,6 +45,8 @@ Found a bug or an issue with this? [Open a new issue](https://github.com/Sandeep
 
 ## Contribute
 
-Please check the [**Contributing Guidelines**](https://github.com/SandeepBalachandran/https://github.com/SandeepBalachandran/workflow-visualizer/issues/blob/master/CONTRIBUTING.md) before contributing.
+Please check the [**Contributing Guidelines**](https://github.com/SandeepBalachandran/workflow-visualizer/blob/master/CONTRIBUTING.md) before contributing.
+
+### Please consider staring th repo before you move on . It gives me motivation work on more projects.
 
 ![](https://visitor-badge.glitch.me/badge?page_id=workflow-visualizer)

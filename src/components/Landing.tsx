@@ -18,7 +18,10 @@ const Landing: NextPage = () => {
     <>
       <Container>
         <div className="flex flex-col justify-between w-full mb-8 lg:flex-row md:mb-0">
-          <div className="flex flex-col justify-center text-center align-middle my-15 lg:text-left">
+          <div
+            className="flex flex-col justify-center text-center align-middle my-15 lg:text-left"
+            data-aos="fade-down"
+          >
             <h1 className="lg:leading-[1.25] text-4xl lg:text-6xl my-2 ">
               Build your workflow <br />
               in no time
@@ -47,7 +50,10 @@ const Landing: NextPage = () => {
               </div>
             </div>
           </div>
-          <div className="p-8 text-center bg-white border-2 border-black rounded-xl">
+          <div
+            className="p-8 text-center bg-white border-2 border-black rounded-xl"
+            data-aos="flip-left"
+          >
             <Image src={Logo} alt="logo" height="400px" width="400px" />
             {/* // Todo - Landing page demo - WIP */}
             {/* <DemoContainer/> */}

@@ -14,7 +14,7 @@ const Header: NextPage = () => {
   };
   return (
     <>
-      <Nav className="ease-in-out duration-300">
+      <Nav className="ease-in-out duration-300" data-aos="fade-down">
         <Container>
           <div className="w-fit p-2">
             <Link href="/">

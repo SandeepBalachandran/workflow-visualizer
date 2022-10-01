@@ -1,4 +1,4 @@
-import { Edge } from 'react-flow-renderer';
+import { Edge } from 'reactflow';
 const initialEdges = [
   { id: 'StartToProcess', source: 'startNode_1', target: 'processNode_1' },
   { id: 'processNodeEdge1', source: 'processNode_1', target: 'processNode_2' },

@@ -1,7 +1,7 @@
 import React from 'react';
 import useStore from '../store/store';
 import { simpleEdges, simpleNodes } from '../utils/landingDemo';
-import ReactFlow, { DefaultEdgeOptions, MarkerType, ReactFlowProvider } from 'react-flow-renderer';
+import ReactFlow, { DefaultEdgeOptions, MarkerType, ReactFlowProvider } from 'reactflow';
 // import { edgeOptions, flowstyle } from '../helpers/helper';
 import StartEndNode from './custom/StartEndNode/StartEndNode';
 import ProcessNode from './custom/ProcessNode/ProcessNode';

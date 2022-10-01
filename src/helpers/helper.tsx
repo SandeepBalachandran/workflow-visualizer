@@ -1,4 +1,4 @@
-import { DefaultEdgeOptions, MarkerType, Node } from 'react-flow-renderer';
+import { DefaultEdgeOptions, MarkerType, Node } from 'reactflow';
 import { newNode } from '../models/models';
 
 const addNewNode = ({

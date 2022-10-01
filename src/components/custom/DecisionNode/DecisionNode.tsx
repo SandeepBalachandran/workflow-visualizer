@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Handle, Position } from 'react-flow-renderer';
+import { Handle, Position } from 'reactflow';
 import useStore from '../../../store/store';
 
 export default function DecisionNode({

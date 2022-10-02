@@ -5,7 +5,7 @@ import ReactFlow, {
   Controls,
   Background,
   useReactFlow,
-} from 'react-flow-renderer';
+} from 'reactflow';
 import DecisionNode from './custom/DecisionNode/DecisionNode';
 import StartEndNode from './custom/StartEndNode/StartEndNode';
 import ProcessNode from './custom/ProcessNode/ProcessNode';

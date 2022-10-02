@@ -32,6 +32,18 @@ body {
   stroke-width: 3;
   stroke: #ffffff;
 }
+.react-flow__controls {
+  bottom: 20px !important;
+  left: 15px;
+  position: absolute;
+  z-index: 5;
+}
+.react-flow__minimap {
+  bottom: 20px !important;
+  right: 15px !important;
+  z-index: 5;
+}
+
 .wrapper {
   flex-grow: 1;
   height: 100%;

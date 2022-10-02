@@ -6,7 +6,7 @@ import {
   addEdge,
   applyNodeChanges,
   applyEdgeChanges,
-} from 'react-flow-renderer';
+} from 'reactflow';
 import { persist } from 'zustand/middleware';
 import initialNodes from '../utils/nodes';
 import initialEdges from '../utils/edges';

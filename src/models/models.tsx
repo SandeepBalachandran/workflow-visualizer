@@ -1,4 +1,4 @@
-import { Edge, Node, OnNodesChange, OnEdgesChange, OnConnect } from 'react-flow-renderer';
+import { Edge, Node, OnNodesChange, OnEdgesChange, OnConnect } from 'reactflow';
 
 export interface newNode {
   id: string;

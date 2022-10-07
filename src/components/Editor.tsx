@@ -65,13 +65,13 @@ function Editor() {
           style={flowstyle}
           defaultEdgeOptions={edgeOptions}
         >
-          <MiniMap
+          {/* <MiniMap
             nodeColor={nodeColor}
             nodeStrokeColor={nodeStrokeColor}
             nodeStrokeWidth={3}
-            className="shadow-lg rounded bg-white"
-          />
-          <Controls className="!shadow-lg !rounded bg-white !left-3" />
+            className="bg-white rounded shadow-lg"
+          /> */}
+          {/* <Controls className="!shadow-lg !rounded bg-white !left-3" /> */}
           <Background color="#ecf0f3" />
         </ReactFlow>
         <SideMenu

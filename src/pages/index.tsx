@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       </Head>
       <Main>
         <Header />
-        <div className="App w-full mt-5 xl:py-20">
+        <div className="w-full mt-5 App xl:py-20">
           <Landing />
         </div>
       </Main>

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import {
   FaTimesCircle,
   FaCaretRight,
@@ -21,6 +22,16 @@ import {
   BsFillExclamationTriangleFill,
   BsCheckCircleFill,
 } from 'react-icons/bs';
+import {
+  MdFormatBold,
+  MdFormatItalic,
+  MdFormatAlignLeft,
+  MdFormatAlignCenter,
+  MdFormatAlignRight,
+  MdFormatColorText,
+  MdFormatColorFill,
+  MdHighlightAlt,
+} from 'react-icons/md';
 
 const icons = new Map([
   ['close', <FaTimesCircle />],
@@ -44,6 +55,15 @@ const icons = new Map([
   ['info', <BsInfoCircleFill />],
   ['warning', <BsFillExclamationTriangleFill />],
   ['diagram', <FaProjectDiagram />],
+
+  ['bold', <MdFormatBold />],
+  ['italic', <MdFormatItalic />],
+  ['alignleft', <MdFormatAlignLeft />],
+  ['aligncenter', <MdFormatAlignCenter />],
+  ['alignright', <MdFormatAlignRight />],
+  ['color', <MdFormatColorText />],
+  ['backgroundcolor', <MdFormatColorFill />],
+  ['border', <MdHighlightAlt />],
 ]);
 
 export function getIcon(iconName: string) {

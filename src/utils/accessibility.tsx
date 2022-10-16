@@ -6,7 +6,6 @@ export function disableMenu(event: {
   ctrlKey: any;
   shiftKey: any;
 }) {
-  // console.log(event)
   if (event.keyCode == 123) {
     event.preventDefault();
     return false;

@@ -19,7 +19,6 @@ const colors = [
   '#e6e6e6',
 ];
 const ColorPicker = (props: Props) => {
-  console.log(props);
   const chooseColor = (color: string) => {
     props.onColorPick(props.type, color);
   };

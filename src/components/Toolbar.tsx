@@ -82,28 +82,28 @@ const Toolbar: NextPage = () => {
 
   return (
     <>
-      <div className="w-full flex flex-row justify-between fixed top-0 z-50">
+      <div className="fixed top-0 z-50 flex flex-row justify-between w-full">
         <div
           className={
             'flex flex-row justify-start m-3 bg-white items-center  duration-1000 shadow-lg rounded ' +
             (!state.toggleLeftBar ? 'w-max' : 'w-[10%]')
           }
         >
-          <div className=" p-3 flex flex-row justify-start rounded  relative  ">
-            <div className="px-4 border-r-2 flex flex-row justify-between">
+          <div className="relative flex flex-row justify-start p-3 rounded ">
+            <div className="flex flex-row justify-between px-4 border-r-2">
               <div>
                 <span className="font-bold ">WV</span>
               </div>
               <div className="mx-2">
-                <span className="px-3 py-1 bg-slate-300 rounded-full text-xs text-black font-bold">
+                <span className="px-3 py-1 text-xs font-bold text-black rounded-full bg-slate-300">
                   Free
                 </span>
               </div>
             </div>
-            <div className="flex flex-col  md:flex-row justify-between absolute -right-14 top-0 bg-white md:static   ">
+            <div className="absolute top-0 flex flex-col justify-between bg-white md:flex-row -right-14 md:static ">
               <Tooltip content="Add New" direction="bottom">
                 <div
-                  className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
+                  className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
                   onClick={createNew}
                 >
                   {getIcon('plus')}
@@ -112,7 +112,7 @@ const Toolbar: NextPage = () => {
 
               <Tooltip content="Save" direction="bottom">
                 <div
-                  className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
+                  className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
                   onClick={() => toggle('toggleSavePopup')}
                 >
                   <span className=""> {getIcon('save')}</span>
@@ -121,7 +121,7 @@ const Toolbar: NextPage = () => {
 
               <Tooltip content="Templates" direction="bottom">
                 <div
-                  className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
+                  className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
                   onClick={() => toggle('toggleTemplatePopup')}
                 >
                   {getIcon('templates')}
@@ -130,7 +130,7 @@ const Toolbar: NextPage = () => {
 
               <Tooltip content="Print" direction="bottom">
                 <div
-                  className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
+                  className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
                   onClick={print}
                 >
                   <span className="text-[#ccc]"> {getIcon('print')}</span>
@@ -139,7 +139,7 @@ const Toolbar: NextPage = () => {
 
               <Tooltip content="Import" direction="bottom">
                 <div
-                  className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
+                  className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
                   onClick={() => toggle('toggleImportPopup')}
                 >
                   <span className=""> {getIcon('import')}</span>
@@ -148,7 +148,7 @@ const Toolbar: NextPage = () => {
 
               <Tooltip content="Export" direction="bottom">
                 <div
-                  className="px-4 py-3 md:py-0  cursor-pointer ease-in duration-100 hover:scale-125 relative"
+                  className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
                   onClick={exportJson}
                 >
                   <span className=""> {getIcon('export')}</span>
@@ -167,20 +167,25 @@ const Toolbar: NextPage = () => {
           {/* <div className="px-3">
             {state.toggleLeftBar ? (
               <span
-                className="cursor-pointer  ease-in duration-100 hover:scale-150"
+                className="duration-100 ease-in cursor-pointer hover:scale-150"
                 onClick={() => toggle('toggleLeftBar')}
               >
                 {getIcon('rightarrow')}
               </span>
             ) : (
               <span
-                className="cursor-pointer  ease-in duration-100 hover:scale-150"
+                className="duration-100 ease-in cursor-pointer hover:scale-150"
                 onClick={() => toggle('toggleLeftBar')}
               >
                 {getIcon('leftarrow')}
               </span>
             )}
           </div> */}
+        </div>
+        <div className="flex flex-row items-center justify-start m-3 duration-1000 bg-white rounded shadow-lg">
+          <div className="relative flex flex-row justify-start p-3 rounded ">
+            <h1>Name</h1>
+          </div>
         </div>
 
         <div
@@ -191,14 +196,14 @@ const Toolbar: NextPage = () => {
         >
           {state.toggleRightBar ? (
             <span
-              className="cursor-pointer  ease-in duration-100 hover:scale-150"
+              className="duration-100 ease-in cursor-pointer hover:scale-150"
               onClick={() => toggle('toggleRightBar')}
             >
               {getIcon('leftarrow')}
             </span>
           ) : (
             <span
-              className="cursor-pointer  ease-in duration-100 hover:scale-150"
+              className="duration-100 ease-in cursor-pointer hover:scale-150"
               onClick={() => toggle('toggleRightBar')}
             >
               {getIcon('rightarrow')}

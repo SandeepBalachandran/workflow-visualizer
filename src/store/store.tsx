@@ -36,22 +36,19 @@ const useStore = create<any>(
         });
       },
 
-      updateNodeLabel: (newLabel: string, selectedId: string) => {
-        set({
-          nodes: get().nodes.map((currentElement: newNode) => {
-            if (currentElement.id === selectedId) {
-              return {
-                ...currentElement,
-                data: { ...currentElement.data, label: newLabel },
-              };
-            }
-            return currentElement;
-          }),
-        });
-
-        // console.log(get().nodes);
-        // console.log(get().edges);
-      },
+      // updateNodeLabel: (newLabel: string, selectedId: string) => {
+      //   set({
+      //     nodes: get().nodes.map((currentElement: newNode) => {
+      //       if (currentElement.id === selectedId) {
+      //         return {
+      //           ...currentElement,
+      //           data: { ...currentElement.data, label: newLabel },
+      //         };
+      //       }
+      //       return currentElement;
+      //     }),
+      //   });
+      // },
       deleteAll: () => {
         set({
           nodes: [],
@@ -73,6 +70,22 @@ const useStore = create<any>(
       onAddToastMsg: (toastInfo: ToastList) => {
         set({
           toastList: [toastInfo],
+        });
+      },
+      updateProps: (key: string, value: string | boolean | undefined, selectedId: string) => {
+        set({
+          nodes: get().nodes.map((currentElement: any) => {
+            if (currentElement.id === selectedId) {
+              currentElement['data'][key] = value;
+              return currentElement;
+            }
+            return currentElement;
+          }),
+        });
+      },
+      onDeleteNode: (nodeId: string) => {
+        set({
+          nodes: get().nodes.filter((currentElement: any) => currentElement.id !== nodeId),
         });
       },
     }),

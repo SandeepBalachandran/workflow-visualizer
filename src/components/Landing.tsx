@@ -54,7 +54,7 @@ const Landing: NextPage = () => {
             className="p-8 text-center bg-white border-2 border-black rounded-xl"
             data-aos="flip-left"
           >
-            <Image src={Logo} alt="logo" height="400px" width="400px" />
+            <Image src={Logo} alt="logo" height="400px" width="400px" priority={true} />
             {/* // Todo - Landing page demo - WIP */}
             {/* <DemoContainer/> */}
           </div>

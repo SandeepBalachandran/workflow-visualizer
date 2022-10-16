@@ -4,7 +4,18 @@ export interface newNode {
   id: string;
   type: string;
   position: { x: number; y: number };
-  data: { nodeType: string; label: string };
+  data: nodeDataProps;
+}
+
+export interface nodeDataProps {
+  nodeType: string;
+  label: string;
+  backgroundColor?: string;
+  borderColor?: string;
+  color?: string;
+  align?: string;
+  bold?: boolean;
+  italics?: boolean;
 }
 
 export type RFState = {

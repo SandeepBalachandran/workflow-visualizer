@@ -28,7 +28,7 @@ const Demo = (props: Props) => {
 
   return (
     <>
-      <div className="App h-full w-full rounded-xl ">
+      <div className="w-full h-full App rounded-xl ">
         <ReactFlow
           nodes={simpleNodes}
           edges={simpleEdges}
@@ -36,7 +36,7 @@ const Demo = (props: Props) => {
           minZoom={0.5}
           maxZoom={0.5}
           fitView
-          style={{ background: '#fff' }}
+          style={{ backgroundColor: '#fff' }}
           defaultEdgeOptions={edgeOptions}
         ></ReactFlow>
       </div>

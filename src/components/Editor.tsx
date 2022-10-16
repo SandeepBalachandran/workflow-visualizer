@@ -27,28 +27,54 @@ function Editor() {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore();
   const reactFlowInstance = useReactFlow();
   const addDecisionNode = () => {
-    const id = `DecisionNode_${++decisionNodeId}`;
-    const label = `Decision Node`;
-    const type = 'decisionNode';
-    const nodeType = 'decisionNode';
-    const newNode = addNewNode({ label, type, nodeType, id });
+    const decisionNodeBody = {
+      label: `Decision Node`,
+      type: 'decisionNode',
+      nodeType: 'decisionNode',
+      id: `DecisionNode_${++decisionNodeId}`,
+      backgroundColor: '#ff653b',
+      borderColor: '#475569',
+      color: '#fff',
+      align: 'center',
+      bold: false,
+      italics: false,
+    };
+    const newNode = addNewNode(decisionNodeBody);
     reactFlowInstance.addNodes(newNode);
   };
 
   const addStartEndNode = (nodeType: string) => {
-    const id = nodeType ? `StartNode_${++startNodeId}` : `EndNode_${++endNodeId}`;
-    const label = nodeType ? 'Start Node' : `End Node`;
-    const type = 'startEndNode';
-    const newNode = addNewNode({ label, type, nodeType, id });
+    const startEndNodebody = {
+      label: nodeType ? 'Start Node' : `End Node`,
+      type: 'startEndNode',
+      nodeType,
+      id: nodeType ? `StartNode_${++startNodeId}` : `EndNode_${++endNodeId}`,
+      backgroundColor: '#000',
+      borderColor: '#475569',
+      color: '#fff',
+      align: 'center',
+      bold: false,
+      italics: false,
+    };
+
+    const newNode = addNewNode(startEndNodebody);
     reactFlowInstance.addNodes(newNode);
   };
 
   const addProcessNode = () => {
-    const id = `ProcessNode_${++processNodeId}`;
-    const label = 'Process Node';
-    const type = 'processNode';
-    const nodeType = '';
-    const newNode = addNewNode({ label, type, nodeType, id });
+    const processNodeBody = {
+      label: 'Process Node',
+      type: 'processNode',
+      nodeType: '',
+      id: `ProcessNode_${++processNodeId}`,
+      backgroundColor: '#784be8',
+      borderColor: '#475569',
+      color: '#fff',
+      align: 'center',
+      bold: false,
+      italics: false,
+    };
+    const newNode = addNewNode(processNodeBody);
     reactFlowInstance.addNodes(newNode);
   };
   return (

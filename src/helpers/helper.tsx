@@ -1,17 +1,30 @@
 import { DefaultEdgeOptions, MarkerType, Node } from 'reactflow';
 import { newNode } from '../models/models';
 
+type props = {
+  label: string;
+  type: string;
+  nodeType: string;
+  id: string;
+  backgroundColor?: string;
+  borderColor?: string;
+  color?: string;
+  align?: string;
+  bold?: boolean;
+  italics?: boolean;
+};
 const addNewNode = ({
   label,
   type,
   nodeType,
   id,
-}: {
-  label: string;
-  type: string;
-  nodeType: string;
-  id: string;
-}): newNode => {
+  backgroundColor,
+  borderColor,
+  color,
+  align,
+  bold,
+  italics,
+}: props): newNode => {
   const newNode = {
     id,
     type,
@@ -22,6 +35,12 @@ const addNewNode = ({
     data: {
       nodeType,
       label,
+      backgroundColor,
+      borderColor,
+      color,
+      align,
+      bold,
+      italics,
     },
   };
   return newNode;
@@ -52,6 +71,15 @@ const nodeStrokeColor = (node: Node): any => {
     default: '#eee',
   };
   return nodeColor[node.type!];
+};
+
+const findStyle = (type: string | undefined) => {
+  const style: any = {
+    left: 'flex-start',
+    center: 'center',
+    right: 'flex-end',
+  };
+  return style[type!];
 };
 
 const edgeOptions: DefaultEdgeOptions = {
@@ -92,6 +120,7 @@ export {
   addNewNode,
   nodeColor,
   nodeStrokeColor,
+  findStyle,
   edgeOptions,
   flowstyle,
   isInProgress,

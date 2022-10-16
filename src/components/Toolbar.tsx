@@ -183,9 +183,9 @@ const Toolbar: NextPage = () => {
           </div> */}
         </div>
         <div className="flex flex-row items-center justify-start m-3 duration-1000 bg-white rounded shadow-lg">
-          <div className="relative flex flex-row justify-start p-3 rounded ">
+          {/* <div className="relative flex flex-row justify-start p-3 rounded ">
             <h1>Name</h1>
-          </div>
+          </div> */}
         </div>
 
         <div

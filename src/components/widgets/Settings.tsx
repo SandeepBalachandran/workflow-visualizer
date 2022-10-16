@@ -41,6 +41,11 @@ const Settings = ({ onSettingsChange, domreference, data, id }: Props) => {
     }
   });
 
+  useOutsideClick(borderColorPickerRef, () => {
+    if (showPicker.borderColorPicker) {
+      setPickerState({ ...showPicker, borderColorPicker: false });
+    }
+  });
   const onUpdateProps = useStore((state: any) => state.updateProps);
   const onDelete = useStore((state: any) => state.onDeleteNode);
 
@@ -57,11 +62,9 @@ const Settings = ({ onSettingsChange, domreference, data, id }: Props) => {
     <div
       className="absolute w-[500px] p-6 overflow-auto text-black bg-white rounded shadow-lg -left-28 -top-28 animate-dropdown"
       ref={domreference}
+      onClick={($event) => $event.stopPropagation()}
     >
-      <div
-        className="flex flex-row content-center justify-between gap-3"
-        onClick={($event) => $event.stopPropagation()}
-      >
+      <div className="flex flex-row content-center justify-between gap-3">
         <span
           className={
             'text-2xl text-black  p-1 rounded-sm' +

@@ -1,5 +1,6 @@
 import React from 'react';
 import useOutsideClick from '../../helpers/useOutsideClick';
+import { nodeDataProps } from '../../models/models';
 import useStore from '../../store/store';
 import { getIcon } from '../../utils/icons';
 import ColorPicker from './ColorPicker';
@@ -7,22 +8,24 @@ import ColorPicker from './ColorPicker';
 type Props = {
   onSettingsChange: any;
   domreference: any;
-  data: {
-    label: string;
-    backgroundColor?: string;
-    color?: string;
-    align?: string;
-    bold?: boolean;
-    italics?: boolean;
+  position: {
+    top: string;
+    left: string;
+    rotate?: string;
   };
+  data: nodeDataProps;
   id: string;
 };
 
-const Settings = ({ onSettingsChange, domreference, data, id }: Props) => {
+const Settings = ({ onSettingsChange, domreference, data, id, position }: Props) => {
   const [showPicker, setPickerState] = React.useState({
     textColorPicker: false,
     backgroundColorPicker: false,
     borderColorPicker: false,
+  });
+
+  const [value, setValue] = React.useState({
+    fontSize: data.fontSize,
   });
 
   const textColorPickerRef = React.useRef(null);
@@ -50,8 +53,13 @@ const Settings = ({ onSettingsChange, domreference, data, id }: Props) => {
   const onDelete = useStore((state: any) => state.onDeleteNode);
 
   const toggleProp = (key: string, value: boolean | string) => {
-    onSettingsChange(key, value, id);
-    onUpdateProps(key, value, id);
+    onSettingsChange(key, value, id); // state change. Lifing state
+    onUpdateProps(key, value, id); // store change. Global save
+  };
+
+  const onValueChange = (e: any) => {
+    setValue({ ...value, fontSize: e.target.value });
+    toggleProp('fontSize', value.fontSize!);
   };
 
   const onDeleteNode = () => {
@@ -60,11 +68,19 @@ const Settings = ({ onSettingsChange, domreference, data, id }: Props) => {
 
   return (
     <div
-      className="absolute w-[500px] p-6 overflow-auto text-black bg-white rounded shadow-lg -left-28 -top-28 animate-dropdown"
+      className="overflow-visible absolute w-[500px] p-6  text-black bg-white rounded shadow-lg  animate-dropdown z-50"
       ref={domreference}
       onClick={($event) => $event.stopPropagation()}
+      style={{
+        top: position.top,
+        left: position.left,
+        rotate: position.rotate ? position.rotate : '',
+      }}
     >
       <div className="flex flex-row content-center justify-between gap-3">
+        {/* <span className="p-1 text-2xl text-black rounded-sm">
+          <input type="number" value={+value.fontSize!} onChange={onValueChange} className="w-14 nodrag text-[10px]"/>
+        </span> */}
         <span
           className={
             'text-2xl text-black  p-1 rounded-sm' +
@@ -120,7 +136,12 @@ const Settings = ({ onSettingsChange, domreference, data, id }: Props) => {
           {getIcon('color')}
 
           {showPicker.textColorPicker && (
-            <ColorPicker onColorPick={toggleProp} type="color" domreference={textColorPickerRef} />
+            <ColorPicker
+              data={data}
+              onPropChange={toggleProp}
+              type="color"
+              domreference={textColorPickerRef}
+            />
           )}
         </span>
 
@@ -137,7 +158,8 @@ const Settings = ({ onSettingsChange, domreference, data, id }: Props) => {
 
           {showPicker.backgroundColorPicker && (
             <ColorPicker
-              onColorPick={toggleProp}
+              data={data}
+              onPropChange={toggleProp}
               type="backgroundColor"
               domreference={backgroundColorPickerRef}
             />
@@ -157,7 +179,8 @@ const Settings = ({ onSettingsChange, domreference, data, id }: Props) => {
 
           {showPicker.borderColorPicker && (
             <ColorPicker
-              onColorPick={toggleProp}
+              data={data}
+              onPropChange={toggleProp}
               type="borderColor"
               domreference={borderColorPickerRef}
             />

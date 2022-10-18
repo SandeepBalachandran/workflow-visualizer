@@ -76,13 +76,15 @@ const Toolbar: NextPage = () => {
     });
   };
 
-  const print = () => {};
+  const print = () => {
+    globalThis.print();
+  };
 
   const random: number = Math.random() * 3 + 1;
 
   return (
     <>
-      <div className="fixed top-0 z-50 flex flex-row justify-between w-full">
+      <div className="fixed top-0 z-50 flex flex-row justify-between w-full print:hidden">
         <div
           className={
             'flex flex-row justify-start m-3 bg-white items-center  duration-1000 shadow-lg rounded ' +
@@ -133,7 +135,7 @@ const Toolbar: NextPage = () => {
                   className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
                   onClick={print}
                 >
-                  <span className="text-[#ccc]"> {getIcon('print')}</span>
+                  <span className=""> {getIcon('print')}</span>
                 </div>
               </Tooltip>
 

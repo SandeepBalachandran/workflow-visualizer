@@ -23,20 +23,29 @@ const SaveFlows = ({ closeHander, show, title, onSave }: any) => {
     }
   };
 
+  const handleKeyDown: React.KeyboardEventHandler = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (event.key === 'Enter') {
+      workflowName && save();
+    }
+  };
+
   const close = () => {
     setWorkflowname('');
     closeHander();
   };
   return (
     <Popup onClose={close} show={show} title={title}>
-      <div className="w-full flex flex-col justify-center gap-8">
+      <div className="flex flex-col justify-center w-full gap-8">
         <div className="flex flex-col gap-2">
           <label>Name of the workflow</label>
           <input
             type="text"
-            className="p-2 rounded border-2 border-slate-200"
+            className="p-2 border-2 rounded border-slate-200"
             value={workflowName}
             onChange={(e) => setWorkflowname(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 

@@ -8,6 +8,8 @@ type props = {
   id: string;
   backgroundColor?: string;
   borderColor?: string;
+  borderWidth?: string;
+  fontSize?: string;
   color?: string;
   align?: string;
   bold?: boolean;
@@ -20,6 +22,8 @@ const addNewNode = ({
   id,
   backgroundColor,
   borderColor,
+  borderWidth,
+  fontSize,
   color,
   align,
   bold,
@@ -37,6 +41,8 @@ const addNewNode = ({
       label,
       backgroundColor,
       borderColor,
+      borderWidth,
+      fontSize,
       color,
       align,
       bold,

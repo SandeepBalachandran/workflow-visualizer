@@ -7,12 +7,15 @@ import useStore from '../../../store/store';
 import Settings from '../../widgets/Settings';
 const handleStyle = { right: 0 };
 
+const position = { top: '-7rem', left: '-3rem' };
 export default function StartEndNode(props: any): JSX.Element {
   const [editOption, setEditOption] = useState(false);
   const [settings, setSettings] = useState({
     label: props.data.label,
     backgroundColor: props.data.backgroundColor,
     borderColor: props.data.borderColor,
+    borderWidth: props.data.borderWidth,
+    fontSize: props.data.fontSize,
     color: props.data.color,
     align: props.data.align,
     bold: props.data.bold,
@@ -72,6 +75,7 @@ export default function StartEndNode(props: any): JSX.Element {
           fontWeight: settings.bold ? 'bolder' : 'normal',
           fontStyle: settings.italics ? 'italic' : 'normal',
           borderColor: settings.borderColor,
+          borderWidth: settings.borderWidth,
         }}
         onClick={onNodeClick}
       >
@@ -85,6 +89,7 @@ export default function StartEndNode(props: any): JSX.Element {
                 color: settings.color,
                 fontWeight: settings.bold ? 'bolder' : 'normal',
                 fontStyle: settings.italics ? 'italic' : 'normal',
+                fontSize: settings.fontSize,
               }}
               onChange={onChangeHandler}
               onBlur={onBlurHandle}
@@ -93,7 +98,11 @@ export default function StartEndNode(props: any): JSX.Element {
             />
           )}
           {!editOption && (
-            <h2 className="p-3 text-sm " onClick={enableEditHandle}>
+            <h2
+              className="p-3 text-sm "
+              onClick={enableEditHandle}
+              style={{ fontSize: settings.fontSize }}
+            >
               {settings.label}
             </h2>
           )}
@@ -121,6 +130,7 @@ export default function StartEndNode(props: any): JSX.Element {
         )}
         {isComponentVisible && (
           <Settings
+            position={position}
             onSettingsChange={settingsPopupEvent}
             domreference={ref}
             data={props.data}

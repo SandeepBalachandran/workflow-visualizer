@@ -8,10 +8,12 @@ export interface newNode {
 }
 
 export interface nodeDataProps {
-  nodeType: string;
+  nodeType?: string;
   label: string;
   backgroundColor?: string;
   borderColor?: string;
+  borderWidth?: string;
+  fontSize?: string;
   color?: string;
   align?: string;
   bold?: boolean;

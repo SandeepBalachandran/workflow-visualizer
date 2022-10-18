@@ -34,8 +34,8 @@ const SideMenu = ({
 
   return (
     <>
-      <div className="flex align-middle w-[60px] fixed left-0 top-44 z-10 m-3  ">
-        <div className=" bg-white flex flex-col z-30  my-auto overflow-none rounded shadow-lg relative">
+      <div className="flex align-middle w-[60px] fixed left-0 top-44 z-10 m-3 print:hidden  ">
+        <div className="relative z-30 flex flex-col my-auto bg-white rounded shadow-lg  overflow-none">
           <div>
             <Tooltip content="Start Node" direction="right">
               <div

@@ -72,3 +72,58 @@ body {
   opacity: 1;
   right: 10px;
 }
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #04aa6d;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04aa6d;
+  cursor: pointer;
+}
+
+@media print {
+  body *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important; /* Chrome, Safari, Edge */
+    color-adjust: exact !important; /*Firefox*/
+  }
+}
+
+/* width */
+.decision-node ::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.decision-node ::-webkit-scrollbar-track {
+  background: #f1f1f105;
+}
+
+/* Handle */
+.decision-node ::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.decision-node ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

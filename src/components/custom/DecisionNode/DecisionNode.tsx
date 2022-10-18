@@ -6,12 +6,15 @@ import { newNode } from '../../../models/models';
 import useStore from '../../../store/store';
 import Settings from '../../widgets/Settings';
 
+const position = { top: '-17rem', left: '-3rem', rotate: '-45deg' };
 export default function DecisionNode(props: any): JSX.Element {
   const [editOption, setEditOption] = useState(false);
   const [settings, setSettings] = useState({
     label: props.data.label,
     backgroundColor: props.data.backgroundColor,
     borderColor: props.data.borderColor,
+    borderWidth: props.data.borderWidth,
+    fontSize: props.data.fontSize,
     color: props.data.color,
     align: props.data.align,
     bold: props.data.bold,
@@ -64,13 +67,14 @@ export default function DecisionNode(props: any): JSX.Element {
 
   return (
     <div
-      className="node-wrapper  shadow-xl rounded-xl  cursor-pointer   border border-solid  p-5 w-[150px] h-[150px] rotate-45"
+      className="node-wrapper  shadow-xl rounded-xl  cursor-pointer   border border-solid  p-5 w-[150px] h-[150px] rotate-45 decision-node"
       style={{
         backgroundColor: settings.backgroundColor,
         color: settings.color,
         fontWeight: settings.bold ? 'bolder' : 'normal',
         fontStyle: settings.italics ? 'italic' : 'normal',
         borderColor: settings.borderColor,
+        borderWidth: settings.borderWidth,
       }}
       onClick={onNodeClick}
     >
@@ -90,12 +94,13 @@ export default function DecisionNode(props: any): JSX.Element {
         <div className="flex" style={{ justifyContent: findStyle(settings.align) }}>
           {editOption && (
             <textarea
-              className="w-full p-3 nodrag"
+              className="w-full p-3 nodrag h-[110px]"
               style={{
                 backgroundColor: settings.backgroundColor,
                 color: settings.color,
                 fontWeight: settings.bold ? 'bolder' : 'normal',
                 fontStyle: settings.italics ? 'italic' : 'normal',
+                fontSize: settings.fontSize,
               }}
               onChange={onChangeHandler}
               onBlur={onBlurHandle}
@@ -104,7 +109,11 @@ export default function DecisionNode(props: any): JSX.Element {
             />
           )}
           {!editOption && (
-            <h2 className="p-3 text-sm " onClick={enableEditHandle}>
+            <h2
+              className="p-3 text-sm overflow-auto h-[110px]"
+              onClick={enableEditHandle}
+              style={{ fontSize: settings.fontSize }}
+            >
               {settings.label}
             </h2>
           )}
@@ -124,6 +133,7 @@ export default function DecisionNode(props: any): JSX.Element {
       </div>
       {isComponentVisible && (
         <Settings
+          position={position}
           onSettingsChange={settingsPopupEvent}
           domreference={ref}
           data={settings}

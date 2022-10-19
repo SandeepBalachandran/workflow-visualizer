@@ -3,6 +3,7 @@ import useOutsideClick from '../../helpers/useOutsideClick';
 import { nodeDataProps } from '../../models/models';
 import useStore from '../../store/store';
 import { getIcon } from '../../utils/icons';
+import Tooltip from '../common/tooltip/Tooltip';
 import ColorPicker from './ColorPicker';
 
 type Props = {
@@ -88,7 +89,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
           }
           onClick={() => toggleProp('bold', !data.bold)}
         >
-          {getIcon('bold')}
+          <Tooltip content="Bold" direction="top">
+            {getIcon('bold')}
+          </Tooltip>
         </span>
         <span
           className={
@@ -97,7 +100,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
           }
           onClick={() => toggleProp('italics', !data.italics)}
         >
-          {getIcon('italic')}
+          <Tooltip content="Italics" direction="top">
+            {getIcon('italic')}
+          </Tooltip>
         </span>
         <span
           className={
@@ -106,7 +111,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
           }
           onClick={() => toggleProp('align', 'left')}
         >
-          {getIcon('alignleft')}
+          <Tooltip content="Align Left" direction="top">
+            {getIcon('alignleft')}
+          </Tooltip>
         </span>
         <span
           className={
@@ -115,7 +122,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
           }
           onClick={() => toggleProp('align', 'center')}
         >
-          {getIcon('aligncenter')}
+          <Tooltip content="Align Center" direction="top">
+            {getIcon('aligncenter')}
+          </Tooltip>
         </span>
         <span
           className={
@@ -124,7 +133,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
           }
           onClick={() => toggleProp('align', 'right')}
         >
-          {getIcon('alignright')}
+          <Tooltip content="Align Right" direction="top">
+            {getIcon('alignright')}
+          </Tooltip>
         </span>
 
         <span
@@ -133,7 +144,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
             setPickerState({ ...showPicker, textColorPicker: !showPicker.textColorPicker });
           }}
         >
-          {getIcon('color')}
+          <Tooltip content="Text color" direction="top">
+            {getIcon('color')}
+          </Tooltip>
 
           {showPicker.textColorPicker && (
             <ColorPicker
@@ -154,7 +167,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
             });
           }}
         >
-          {getIcon('backgroundcolor')}
+          <Tooltip content="Background color" direction="top">
+            {getIcon('backgroundcolor')}
+          </Tooltip>
 
           {showPicker.backgroundColorPicker && (
             <ColorPicker
@@ -175,8 +190,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
             });
           }}
         >
-          {getIcon('border')}
-
+          <Tooltip content="Border color" direction="top">
+            {getIcon('border')}
+          </Tooltip>
           {showPicker.borderColorPicker && (
             <ColorPicker
               data={data}
@@ -188,7 +204,9 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
         </span>
 
         <span className="p-1 text-2xl text-black" onClick={onDeleteNode}>
-          {getIcon('delete')}
+          <Tooltip content="Delete Node" direction="top">
+            {getIcon('delete')}
+          </Tooltip>
         </span>
       </div>
     </div>

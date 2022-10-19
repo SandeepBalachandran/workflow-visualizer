@@ -100,7 +100,8 @@ export const TooltipBody = styled.div`
 
   /* Absolute positioning */
   &.top {
-    top: calc(var(--tooltip-margin) * -1);
+    /* top: calc(var(--tooltip-margin) * -1); */
+    top: -50px;
   }
   /* CSS border triangles */
   &.top::before {

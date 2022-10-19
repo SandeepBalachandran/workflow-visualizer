@@ -35,7 +35,7 @@ const ColorPicker = (props: Props) => {
   return (
     <div onClick={($event) => $event.stopPropagation()}>
       <div
-        className="fixed flex flex-col w-40 gap-8 p-1 bg-white rounded shadow-lg -top-12"
+        className="fixed z-50 flex flex-col w-40 gap-8 p-3 bg-white rounded shadow-lg -top-12"
         ref={props.domreference}
       >
         {props.type === 'borderColor' && (

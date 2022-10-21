@@ -7,14 +7,14 @@ import OgImage from '../../public/workflow.png';
 import { disableMenu, handelRightClick } from '../utils/accessibility';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  React.useEffect(() => {
-    document.addEventListener('keydown', disableMenu, false);
-    document.addEventListener('contextmenu', handelRightClick);
-    return () => {
-      document.removeEventListener('keydown', disableMenu, false);
-      document.removeEventListener('contextmenu', handelRightClick);
-    };
-  });
+  // React.useEffect(() => {
+  //   document.addEventListener('keydown', disableMenu, false);
+  //   document.addEventListener('contextmenu', handelRightClick);
+  //   return () => {
+  //     document.removeEventListener('keydown', disableMenu, false);
+  //     document.removeEventListener('contextmenu', handelRightClick);
+  //   };
+  // });
 
   return (
     <>

@@ -78,6 +78,7 @@ export default function ProcessNode(props: any): JSX.Element {
       onClick={onNodeClick}
     >
       <Handle type="target" position={Position.Left} id="processHandle" style={handleStyle} />
+      <Handle type="target" position={Position.Top} id="processHandleTop" style={handleStyle} />
       <div className="flex min-w-[140px]" style={{ justifyContent: findStyle(props.data.align) }}>
         {editOption && (
           <input
@@ -107,6 +108,12 @@ export default function ProcessNode(props: any): JSX.Element {
         )}
       </div>
       <Handle type="source" position={Position.Right} id="processHandle" style={handleStyle} />
+      <Handle
+        type="source"
+        position={Position.Bottom}
+        id="processHandleBottom"
+        style={handleStyle}
+      />
 
       {isComponentVisible && (
         <Settings

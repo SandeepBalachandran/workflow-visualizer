@@ -99,15 +99,6 @@ body {
   cursor: pointer;
 }
 
-@media print {
-  body *,
-  *::before,
-  *::after {
-    -webkit-print-color-adjust: exact !important; /* Chrome, Safari, Edge */
-    color-adjust: exact !important; /*Firefox*/
-  }
-}
-
 /* width */
 .decision-node ::-webkit-scrollbar {
   width: 5px;

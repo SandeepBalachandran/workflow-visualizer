@@ -102,7 +102,7 @@ const Toolbar: NextPage = () => {
                 </span>
               </div>
             </div>
-            <div className="absolute top-0 flex flex-col justify-between bg-white md:flex-row -right-14 md:static ">
+            <div className="fixed flex flex-col justify-between bg-white top-48 right-4 md:flex-row md:static md:top-0 md:right-0">
               <Tooltip content="Add New" direction="bottom">
                 <div
                   className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
@@ -192,13 +192,13 @@ const Toolbar: NextPage = () => {
 
         <div
           className={
-            'bg-white p-3 m-3 flex flex-row  justify-start rounded shadow-lg  items-center duration-1000	' +
-            (!state.toggleRightBar ? 'w-[30%]' : 'w-[5%]')
+            'bg-white p-3 m-3 flex flex-row  justify-start rounded shadow-lg  items-center duration-1000 w-full  ' +
+            (!state.toggleRightBar ? 'md:w-[30%]' : 'md:w-[5%]')
           }
         >
           {state.toggleRightBar ? (
             <span
-              className="duration-100 ease-in cursor-pointer hover:scale-150"
+              className="invisible duration-100 ease-in cursor-pointer hover:scale-150 md:visible"
               onClick={() => toggle('toggleRightBar')}
             >
               {getIcon('leftarrow')}

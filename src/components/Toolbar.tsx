@@ -12,9 +12,9 @@ import MenuDropdown from './widgets/MenuDropdown';
 import SavedFlowsList from './widgets/SavedFlowsList';
 
 const Toolbar: NextPage = () => {
-  const { nodes, edges, deleteAll, onAddToastMsg } = useStore();
+  const { nodes, edges, setCustom, onAddToastMsg } = useStore();
   const createNew = () => {
-    deleteAll();
+    setCustom([], []);
   };
 
   const exportJson = () => {

@@ -6,13 +6,13 @@ import { getIcon } from '../../utils/icons';
 const ImportJson = ({ closeHander, show, title, onImport }: any) => {
   const { setCustom } = useStore();
   const [fileName, setFileName] = React.useState('');
-  const [fileContent, setFileContent] = React.useState('');
+  const [fileContent, setFileContent] = React.useState({ nodes: [], edges: [] });
 
   const importJsonReference = React.useRef<HTMLInputElement>(null);
 
   const clearFiles = (e: any) => {
     e?.stopPropagation();
-    setFileContent('');
+    setFileContent({ nodes: [], edges: [] });
     setFileName('');
   };
 
@@ -32,7 +32,7 @@ const ImportJson = ({ closeHander, show, title, onImport }: any) => {
   const handleDrop = (e: any) => {};
 
   const importJson = (event: any) => {
-    setCustom(fileContent);
+    setCustom(fileContent.nodes, fileContent.edges);
     clearFiles(event);
     onImport();
   };

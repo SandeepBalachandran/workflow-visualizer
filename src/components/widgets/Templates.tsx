@@ -4,11 +4,15 @@ import React from 'react';
 import useStore from '../../store/store';
 import Popup from '../common/popup/Popup';
 import { templates } from '../../models/models';
-
+import initialNodes from '../../utils/nodes';
+import initialEdges from '../../utils/edges';
 const Templates = ({ closeHandler, show, title, onChoose }: any) => {
-  const { nodes, edges, deleteAll, setLabProcedureFlow, setCustom } = useStore();
+  const { setCustom } = useStore();
   const createNew = () => {
-    deleteAll();
+    setCustom([], []);
+  };
+  const setLabProcedureFlow = () => {
+    setCustom(initialNodes, initialEdges);
   };
 
   const choose = (template: templates) => {
@@ -42,7 +46,7 @@ const Templates = ({ closeHandler, show, title, onChoose }: any) => {
   return (
     <>
       <Popup onClose={closeHandler} show={show} title={title}>
-        <div className="p-4 w-full flex flex-row justify-around gap-3 flex-wrap">
+        <div className="flex flex-row flex-wrap justify-around w-full gap-3 p-4">
           {templates.map((template, index) => {
             return (
               <React.Fragment key={index}>

@@ -1,16 +1,18 @@
 import React from 'react';
 import useStore from '../store/store';
 import Router from 'next/router';
+import initialNodes from '../utils/nodes';
+import initialEdges from '../utils/edges';
 
 const Options = () => {
-  const { deleteAll, setLabProcedureFlow } = useStore();
+  const { setCustom } = useStore();
   const useFresh = () => {
-    deleteAll();
+    setCustom([], []);
     Router.push('/editor');
   };
 
   const useExisting = () => {
-    setLabProcedureFlow();
+    setCustom(initialNodes, initialEdges);
     Router.push('/editor');
   };
   return (

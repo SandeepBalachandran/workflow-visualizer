@@ -8,9 +8,7 @@ import {
   applyEdgeChanges,
 } from 'reactflow';
 import { persist } from 'zustand/middleware';
-import initialNodes from '../utils/nodes';
-import initialEdges from '../utils/edges';
-import { newNode, ToastList } from '../models/models';
+import { ToastList } from '../models/models';
 
 const useStore = create<any>(
   persist(
@@ -49,19 +47,7 @@ const useStore = create<any>(
       //     }),
       //   });
       // },
-      deleteAll: () => {
-        set({
-          nodes: [],
-          edges: [],
-        });
-      },
-      setLabProcedureFlow: () => {
-        set({
-          nodes: initialNodes,
-          edges: initialEdges,
-        });
-      },
-      setCustom: ({ nodes, edges }: { nodes: object; edges: object }) => {
+      setCustom: (nodes: any, edges: any) => {
         set({
           nodes,
           edges,

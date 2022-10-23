@@ -84,6 +84,8 @@ export const TooltipBody = styled.div`
   line-height: 1;
   z-index: 200;
   white-space: nowrap;
+  font-weight: normal;
+  font-style: normal;
   // border-radius: 0.75rem/* 12px */;
 
   &:before {

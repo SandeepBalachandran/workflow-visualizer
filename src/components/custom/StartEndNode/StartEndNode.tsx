@@ -21,7 +21,7 @@ export default function StartEndNode(props: any): JSX.Element {
     bold: props.data.bold,
     italics: props.data.italics,
   });
-  const onUpdateNodeLabel = useStore((state: any) => state.updateProps);
+  const onUpdateNodeLabel = useStore((state: any) => state.onUpdateProps);
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(true);
   const enableEditHandle = () => {
     setEditOption(true);

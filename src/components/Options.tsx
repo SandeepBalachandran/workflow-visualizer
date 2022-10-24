@@ -5,14 +5,14 @@ import initialNodes from '../utils/nodes';
 import initialEdges from '../utils/edges';
 
 const Options = () => {
-  const { setCustom } = useStore();
+  const { onSetCustomFlow } = useStore();
   const useFresh = () => {
-    setCustom([], []);
+    onSetCustomFlow([], []);
     Router.push('/editor');
   };
 
   const useExisting = () => {
-    setCustom(initialNodes, initialEdges);
+    onSetCustomFlow(initialNodes, initialEdges);
     Router.push('/editor');
   };
   return (

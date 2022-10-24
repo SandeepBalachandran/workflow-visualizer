@@ -19,7 +19,7 @@ const SaveFlows = ({ closeHander, show, title, onSave }: any) => {
         newVal[workflowName] = currentFlowState;
         localStorage.setItem('savedFlows', JSON.stringify(newVal));
       }
-      onSave(false);
+      onSave(workflowName, false);
     }
   };
 

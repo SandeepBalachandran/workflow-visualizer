@@ -15,6 +15,7 @@ const useStore = create<any>(
     (set, get) => ({
       nodes: [],
       edges: [],
+      workflowName: 'Initial',
       toastList: [],
       onNodesChange: (changes: NodeChange[]) => {
         set({
@@ -47,10 +48,15 @@ const useStore = create<any>(
       //     }),
       //   });
       // },
-      setCustom: (nodes: any, edges: any) => {
+      onSetCustomFlow: (nodes: any, edges: any) => {
         set({
           nodes,
           edges,
+        });
+      },
+      onSetWorkflowName: (workflowName: string) => {
+        set({
+          workflowName,
         });
       },
       onAddToastMsg: (toastInfo: ToastList) => {
@@ -58,7 +64,7 @@ const useStore = create<any>(
           toastList: [toastInfo],
         });
       },
-      updateProps: (key: string, value: string | boolean | undefined, selectedId: string) => {
+      onUpdateProps: (key: string, value: string | boolean | undefined, selectedId: string) => {
         set({
           nodes: get().nodes.map((currentElement: any) => {
             if (currentElement.id === selectedId) {

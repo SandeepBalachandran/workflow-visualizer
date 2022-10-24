@@ -50,7 +50,7 @@ const Settings = ({ onSettingsChange, domreference, data, id, position }: Props)
       setPickerState({ ...showPicker, borderColorPicker: false });
     }
   });
-  const onUpdateProps = useStore((state: any) => state.updateProps);
+  const onUpdateProps = useStore((state: any) => state.onUpdateProps);
   const onDelete = useStore((state: any) => state.onDeleteNode);
 
   const toggleProp = (key: string, value: boolean | string) => {

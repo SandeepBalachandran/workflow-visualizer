@@ -3,8 +3,8 @@ import useStore from '../../store/store';
 import { getIcon } from '../../utils/icons';
 import Dropdown from '../common/dropdown/Dropdown';
 
-const SavedFlowsList = ({ menuLabel }: any) => {
-  const { onAddToastMsg, setCustom } = useStore();
+const SavedFlowsList = ({ menuLabel, onApply }: any) => {
+  const { onAddToastMsg, onSetCustomFlow, onSetWorkflowName } = useStore();
   const [workflows, setWorkflows] = React.useState([]);
 
   React.useEffect(() => {
@@ -26,12 +26,13 @@ const SavedFlowsList = ({ menuLabel }: any) => {
   };
 
   const setWorkflow = ({ name, nodes, edges }: any) => {
-    setCustom(nodes, edges);
+    onSetCustomFlow(nodes, edges);
     const desc = onAddToastMsg({
       title: 'Perfect',
       description: `Workflow ${name} Applied successfully`,
       type: 'success',
     });
+    onApply(name);
   };
   const deleteItem = (menuItem: any) => {
     if (localStorage.getItem('savedFlows')) {

@@ -4,18 +4,25 @@ import useStore from '../../store/store';
 import { getIcon } from '../../utils/icons';
 
 const ImportJson = ({ closeHander, show, title, onImport }: any) => {
-  const { setCustom } = useStore();
+  const { onSetCustomFlow } = useStore();
   const [fileName, setFileName] = React.useState('');
   const [fileContent, setFileContent] = React.useState({ nodes: [], edges: [] });
 
   const importJsonReference = React.useRef<HTMLInputElement>(null);
 
+  /*
+   * clear selected file from the event inside the popup
+   */
   const clearFiles = (e: any) => {
     e?.stopPropagation();
     setFileContent({ nodes: [], edges: [] });
     setFileName('');
   };
 
+  /*
+   * Set the filecontent once the file is selected
+   *
+   */
   const handleJsonImport = (e: any) => {
     const fileReader = new FileReader();
     fileReader.readAsText(e.target.files[0], 'UTF-8');
@@ -32,9 +39,9 @@ const ImportJson = ({ closeHander, show, title, onImport }: any) => {
   const handleDrop = (e: any) => {};
 
   const importJson = (event: any) => {
-    setCustom(fileContent.nodes, fileContent.edges);
+    onSetCustomFlow(fileContent.nodes, fileContent.edges);
     clearFiles(event);
-    onImport();
+    onImport(fileName);
   };
 
   return (
@@ -42,7 +49,7 @@ const ImportJson = ({ closeHander, show, title, onImport }: any) => {
       <div className="px-4 md:px-28 py-8 w-full flex flex-col justify-around gap-6 ">
         <div className="relative drop-zone max-w-[400px] h-[300px] p-6 flex flex-col gap-10 items-center justify-center text-center font-bold text-sm  cursor-pointer border-dashed border-4 rounded ">
           <span className="drop-zone__prompt">Drop JSON file here or click to upload</span>
-          {fileContent && (
+          {Boolean(fileContent.nodes.length) && (
             <span className="p-2 border-2 rounded shadow-sm relative">
               {fileName}
               <div

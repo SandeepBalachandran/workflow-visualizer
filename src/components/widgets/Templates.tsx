@@ -7,12 +7,12 @@ import { templates } from '../../models/models';
 import initialNodes from '../../utils/nodes';
 import initialEdges from '../../utils/edges';
 const Templates = ({ closeHandler, show, title, onChoose }: any) => {
-  const { setCustom } = useStore();
+  const { onSetCustomFlow } = useStore();
   const createNew = () => {
-    setCustom([], []);
+    onSetCustomFlow([], []);
   };
   const setLabProcedureFlow = () => {
-    setCustom(initialNodes, initialEdges);
+    onSetCustomFlow(initialNodes, initialEdges);
   };
 
   const choose = (template: templates) => {

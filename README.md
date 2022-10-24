@@ -32,12 +32,12 @@
 
 ### Node details
 
-| Node Type     | Purpose                      | Handles                      | Notes                                                                                |
-| ------------- | ---------------------------- | ---------------------------- | ------------------------------------------------------------------------------------ |
-| Start Node    | Denote start of the workflow | 2 source handles             | Node can connect to 2 other nodes                                                    |
-| Process Node  | Denote steps in the workflow | 1 source and 1 target handle | Node can receive connection from a node and can be connected to another node as well |
-| Decision Node | Denotes Conditions           | 2 source and target handles  | Node can receive 2 connections from other nodes and can be connected 2 other nodes   |
-| End Node      | Denote end of the workflow   | 2 target handles             | Node can receive 2 connections from another nodes                                    |
+| Node Type     | Purpose                      | Handles                       |
+| ------------- | ---------------------------- | ----------------------------- |
+| Start Node    | Denote start of the workflow | 2 source handles              |
+| Process Node  | Denote steps in the workflow | 2 source and 2 target handles |
+| Decision Node | Denotes Conditions           | 2 source and 2 target handles |
+| End Node      | Denote end of the workflow   | 2 target handles              |
 
 ## Help Improve
 
@@ -47,6 +47,6 @@ Found a bug or an issue with this? [Open a new issue](https://github.com/Sandeep
 
 Please check the [**Contributing Guidelines**](https://github.com/SandeepBalachandran/workflow-visualizer/blob/master/CONTRIBUTING.md) before contributing.
 
-### Please consider staring th repo before you move on . It gives me motivation work on more projects.
+### Please consider staring the repository before you move on . That means a lot to me.
 
 ![](https://visitor-badge.glitch.me/badge?page_id=workflow-visualizer)

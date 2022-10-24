@@ -12,9 +12,11 @@ import MenuDropdown from './widgets/MenuDropdown';
 import SavedFlowsList from './widgets/SavedFlowsList';
 
 const Toolbar: NextPage = () => {
-  const { nodes, edges, setCustom, onAddToastMsg } = useStore();
+  const { nodes, edges, workflowName, onSetWorkflowName, onSetCustomFlow, onAddToastMsg } =
+    useStore();
+  const [name, setName] = React.useState(workflowName);
   const createNew = () => {
-    setCustom([], []);
+    onSetCustomFlow([], []);
   };
 
   const exportJson = () => {
@@ -33,7 +35,9 @@ const Toolbar: NextPage = () => {
   //   }
   // };
 
-  const afterSaved = () => {
+  const afterSaved = (name: string) => {
+    onSetWorkflowName(name);
+    setName(name);
     toggle('toggleSavePopup');
     onAddToastMsg({
       title: 'Yup',
@@ -42,7 +46,15 @@ const Toolbar: NextPage = () => {
     });
   };
 
-  const afterImported = () => {
+  const afterApplied = (name: string) => {
+    onSetWorkflowName(name);
+    setName(name);
+  };
+
+  const afterImported = (fileName: string) => {
+    const fileNameWithoutExtension = fileName.slice(0, fileName.indexOf('.'));
+    onSetWorkflowName(fileNameWithoutExtension);
+    setName(fileNameWithoutExtension);
     toggle('toggleImportPopup');
     onAddToastMsg({
       title: 'Hooray!',
@@ -185,9 +197,12 @@ const Toolbar: NextPage = () => {
           </div> */}
         </div>
         <div className="flex flex-row items-center justify-start m-3 duration-1000 bg-white rounded shadow-lg">
-          {/* <div className="relative flex flex-row justify-start p-3 rounded ">
-            <h1>Name</h1>
-          </div> */}
+          <div className="relative flex flex-row justify-start p-3 rounded ">
+            <h1>
+              <span className="text-slate-400">Flow Name : </span>
+              {name}
+            </h1>
+          </div>
         </div>
 
         <div
@@ -216,6 +231,7 @@ const Toolbar: NextPage = () => {
             <SavedFlowsList
               menuLabel={<span className=""> {getIcon('folder')}</span>}
               key={random}
+              onApply={afterApplied}
             />
           </Tooltip>
         </div>

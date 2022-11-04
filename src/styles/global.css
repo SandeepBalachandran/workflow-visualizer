@@ -44,6 +44,11 @@ body {
   z-index: 5;
 }
 
+@media print {
+  .react-flow__minimap {
+    display: none;
+  }
+}
 .wrapper {
   flex-grow: 1;
   height: 100%;

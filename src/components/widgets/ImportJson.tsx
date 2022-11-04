@@ -46,14 +46,14 @@ const ImportJson = ({ closeHander, show, title, onImport }: any) => {
 
   return (
     <Popup onClose={closeHander} show={show} title={title}>
-      <div className="px-4 md:px-28 py-8 w-full flex flex-col justify-around gap-6 ">
+      <div className="flex flex-col justify-around w-full gap-6 px-4 py-8 md:px-28 ">
         <div className="relative drop-zone max-w-[400px] h-[300px] p-6 flex flex-col gap-10 items-center justify-center text-center font-bold text-sm  cursor-pointer border-dashed border-4 rounded ">
           <span className="drop-zone__prompt">Drop JSON file here or click to upload</span>
           {Boolean(fileContent.nodes.length) && (
-            <span className="p-2 border-2 rounded shadow-sm relative">
+            <span className="relative p-2 border-2 rounded shadow-sm">
               {fileName}
               <div
-                className=" bg-red-600 -top-4 -right-4 absolute cursor-pointer z-20 p-2 rounded-full"
+                className="absolute z-20 p-2 bg-red-600 rounded-full cursor-pointer -top-4 -right-4"
                 onClick={clearFiles}
               >
                 <span className="text-white">{getIcon('close')}</span>
@@ -63,15 +63,15 @@ const ImportJson = ({ closeHander, show, title, onImport }: any) => {
           <input
             type="file"
             name="myFile"
-            className="drop-zone__input opacity-0 absolute w-full h-full cursor-pointer"
+            className="absolute w-full h-full opacity-0 cursor-pointer drop-zone__input"
             onChange={handleJsonImport}
             ref={importJsonReference}
             accept="application/json"
             onDrop={handleDrop}
           />
         </div>
-        {fileContent && (
-          <div className="w-full flex flex-row justify-center">
+        {Boolean(fileContent.nodes.length) && (
+          <div className="flex flex-row justify-center w-full">
             <div
               className="rounded px-5 p-3  bg-[#155bd5] text-white text-center font-bold hover:cursor-pointer"
               onClick={importJson}

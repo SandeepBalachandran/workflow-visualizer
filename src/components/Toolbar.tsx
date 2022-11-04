@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import React from 'react';
 import useStore from '../store/store';
-import { downloadFile } from '../helpers/helper';
+import { downloadFile, downloadImage } from '../helpers/helper';
 import Tooltip from './common/tooltip/Tooltip';
 import Templates from './widgets/Templates';
 import ImportJson from './widgets/ImportJson';
@@ -10,6 +10,7 @@ import { getIcon } from '../utils/icons';
 import { dropdownItems } from '../models/models';
 import MenuDropdown from './widgets/MenuDropdown';
 import SavedFlowsList from './widgets/SavedFlowsList';
+import { toPng } from 'html-to-image';
 
 const Toolbar: NextPage = () => {
   const { nodes, edges, workflowName, onSetWorkflowName, onSetCustomFlow, onAddToastMsg } =
@@ -92,7 +93,41 @@ const Toolbar: NextPage = () => {
     globalThis.print();
   };
 
+  const downloadImg = () => {
+    const canvas: HTMLElement = document.querySelector('.react-flow')!;
+    toPng(canvas, {
+      filter: (node) => {
+        // we don't want to add the minimap and the controls to the image
+        if (
+          node?.classList?.contains('react-flow__minimap') ||
+          node?.classList?.contains('react-flow__controls')
+        ) {
+          return false;
+        }
+        return true;
+      },
+    }).then(downloadImage);
+  };
+
   const random: number = Math.random() * 3 + 1;
+
+  // const exportDropdownItems: dropdownItems[] = [
+  //   {
+  //     id: 1,
+  //     name: 'Json',
+  //     method: exportJson,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Print',
+  //     method: print,
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Download Image',
+  //     method: downloadImg,
+  //   },
+  // ];
 
   return (
     <>
@@ -151,6 +186,15 @@ const Toolbar: NextPage = () => {
                 </div>
               </Tooltip>
 
+              <Tooltip content="Download Image" direction="bottom">
+                <div
+                  className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
+                  onClick={downloadImg}
+                >
+                  <span className=""> {getIcon('image')}</span>
+                </div>
+              </Tooltip>
+
               <Tooltip content="Import" direction="bottom">
                 <div
                   className="relative px-4 py-3 duration-100 ease-in cursor-pointer md:py-0 hover:scale-125"
@@ -168,6 +212,14 @@ const Toolbar: NextPage = () => {
                   <span className=""> {getIcon('export')}</span>
                 </div>
               </Tooltip>
+
+              {/* <Tooltip content="Export" direction="bottom">
+                <MenuDropdown
+                  menuLabel={<span className="text-[#ccc] "> {getIcon('export')}</span>}
+                  items={exportDropdownItems}
+                  key={random}
+                />
+              </Tooltip> */}
               <Tooltip content="Settings" direction="bottom">
                 <MenuDropdown
                   menuLabel={<span className="text-[#ccc] "> {getIcon('settings')}</span>}

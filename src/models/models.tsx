@@ -18,6 +18,8 @@ export interface nodeDataProps {
   align?: string;
   bold?: boolean;
   italics?: boolean;
+  minWidth?: string;
+  minHeight?: string;
 }
 
 export type RFState = {

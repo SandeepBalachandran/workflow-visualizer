@@ -19,6 +19,8 @@ export default function ProcessNode(props: any): JSX.Element {
     align: props.data.align,
     bold: props.data.bold,
     italics: props.data.italics,
+    minWidth: props.data.minWidth,
+    minHeight: props.data.minHeight,
   });
   const onUpdateNodeLabel = useStore((state: any) => state.onUpdateProps);
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(true);
@@ -74,9 +76,12 @@ export default function ProcessNode(props: any): JSX.Element {
         fontStyle: settings.italics ? 'italic' : 'normal',
         borderColor: settings.borderColor,
         borderWidth: settings.borderWidth,
+        width: settings.minWidth,
+        height: settings.minHeight,
       }}
       onClick={onNodeClick}
     >
+      {/* <div className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full cursor-ne-resize nodrag "></div> */}
       <Handle type="target" position={Position.Left} id="processHandle" style={handleStyle} />
       <Handle type="target" position={Position.Top} id="processHandleTop" style={handleStyle} />
       <div className="flex min-w-[140px]" style={{ justifyContent: findStyle(props.data.align) }}>

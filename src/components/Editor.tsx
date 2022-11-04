@@ -59,6 +59,8 @@ function Editor() {
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     };
 
     const newNode = addNewNode(startEndNodebody);
@@ -79,6 +81,8 @@ function Editor() {
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     };
     const newNode = addNewNode(processNodeBody);
     reactFlowInstance.addNodes(newNode);
@@ -97,12 +101,14 @@ function Editor() {
           style={flowstyle}
           defaultEdgeOptions={edgeOptions}
         >
-          {/* <MiniMap
+          <MiniMap
             nodeColor={nodeColor}
             nodeStrokeColor={nodeStrokeColor}
             nodeStrokeWidth={3}
             className="bg-white rounded shadow-lg"
-          /> */}
+            zoomable
+            pannable
+          />
           {/* <Controls className="!shadow-lg !rounded bg-white !left-3" /> */}
           <Background color="#ecf0f3" />
         </ReactFlow>

@@ -20,6 +20,8 @@ export default function StartEndNode(props: any): JSX.Element {
     align: props.data.align,
     bold: props.data.bold,
     italics: props.data.italics,
+    minWidth: props.data.minWidth,
+    minHeight: props.data.minHeight,
   });
   const onUpdateNodeLabel = useStore((state: any) => state.onUpdateProps);
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(true);
@@ -76,6 +78,8 @@ export default function StartEndNode(props: any): JSX.Element {
           fontStyle: settings.italics ? 'italic' : 'normal',
           borderColor: settings.borderColor,
           borderWidth: settings.borderWidth,
+          width: settings.minWidth,
+          height: settings.minHeight,
         }}
         onClick={onNodeClick}
       >

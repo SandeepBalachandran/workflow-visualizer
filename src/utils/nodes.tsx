@@ -16,6 +16,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
   {
@@ -32,6 +34,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
   {
@@ -48,6 +52,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
   {
@@ -64,6 +70,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
   {
@@ -80,6 +88,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
   {
@@ -112,6 +122,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
   {
@@ -128,6 +140,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
   {
@@ -144,6 +158,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
   {
@@ -161,6 +177,8 @@ const initialNodes = [
       align: 'center',
       bold: false,
       italics: false,
+      minWidth: 'fit-content',
+      minHeight: 'fit-content',
     },
   },
 ] as Node[];

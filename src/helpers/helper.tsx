@@ -14,6 +14,8 @@ type props = {
   align?: string;
   bold?: boolean;
   italics?: boolean;
+  minWidth?: string;
+  minHeight?: string;
 };
 const addNewNode = ({
   label,
@@ -28,6 +30,8 @@ const addNewNode = ({
   align,
   bold,
   italics,
+  minWidth,
+  minHeight,
 }: props): newNode => {
   const newNode = {
     id,
@@ -47,6 +51,8 @@ const addNewNode = ({
       align,
       bold,
       italics,
+      minWidth,
+      minHeight,
     },
   };
   return newNode;
@@ -122,6 +128,13 @@ const downloadFile = ({ data, fileName, fileType }: any) => {
   a.remove();
 };
 
+function downloadImage(dataUrl: any) {
+  const a = document.createElement('a');
+  a.setAttribute('download', 'workflow.png');
+  a.setAttribute('href', dataUrl);
+  a.click();
+}
+
 export {
   addNewNode,
   nodeColor,
@@ -131,4 +144,5 @@ export {
   flowstyle,
   isInProgress,
   downloadFile,
+  downloadImage,
 };

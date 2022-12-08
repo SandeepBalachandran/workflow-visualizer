@@ -117,6 +117,7 @@ export default function StartEndNode(props: any): JSX.Element {
             <Handle type="target" position={Position.Left} id="targetEnd1" style={handleStyle} />
             <Handle type="target" position={Position.Top} id="targetEnd2" style={handleStyle} />
             <Handle type="target" position={Position.Bottom} id="targetEnd3" style={handleStyle} />
+            <Handle type="target" position={Position.Right} id="targetEnd4" style={handleStyle} />
           </>
         )}
 
@@ -130,6 +131,7 @@ export default function StartEndNode(props: any): JSX.Element {
               id="sourceStart3"
               style={handleStyle}
             />
+            <Handle type="source" position={Position.Left} id="sourceStart4" style={handleStyle} />
           </>
         )}
         {isComponentVisible && (

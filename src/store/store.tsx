@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import {
   Connection,
   EdgeChange,
@@ -7,7 +7,7 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
 } from 'reactflow';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { ToastList } from '../models/models';
 
 const useStore = create<any>(
@@ -83,7 +83,7 @@ const useStore = create<any>(
     }),
     {
       name: 'flow-storage', // unique key name
-      getStorage: () => localStorage, // (optional) by default, 'localStorage' is used
+      storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
     }
   )
 );

@@ -18,7 +18,7 @@ body {
 }
 .react-flow__attribution {
   /* Note: Application is done by using  React Flow - https://reactflow.dev/ . Check it out*/
-  display: none;
+  /* display: none; */
 }
 
 .react-flow .react-flow__handle {

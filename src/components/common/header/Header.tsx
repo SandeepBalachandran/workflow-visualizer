@@ -9,14 +9,16 @@ import { Container, Nav, RightItemsContainer } from '../../../styles/style';
 
 const Header: NextPage = () => {
   const [visible, setVisible] = useState(false);
+  const productHuntUrl =
+    'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=407405&theme=light';
   const togglehandler = () => {
     setVisible(!visible);
   };
   return (
     <>
-      <Nav className="ease-in-out duration-300" data-aos="fade-down">
+      <Nav className="duration-300 ease-in-out" data-aos="fade-down">
         <Container>
-          <div className="w-fit p-2">
+          <div className="p-2 w-fit">
             <Link href="/">
               <Image
                 src={Logo}
@@ -27,12 +29,20 @@ const Header: NextPage = () => {
               />
             </Link>
           </div>
+          <a
+            href="https://www.producthunt.com/posts/workflow-visualizer?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-workflow&#0045;visualizer"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden  md:flex"
+          >
+            <img src={productHuntUrl} alt="producthunt" />
+          </a>
           <RightItemsContainer className="text-sm cursor-pointer">
-            <a className="nav-item ease-in duration-100 hover:scale-125" onClick={togglehandler}>
+            <a className="duration-100 ease-in nav-item hover:scale-125" onClick={togglehandler}>
               FAQ
             </a>
             <a
-              className="icon ease-in duration-100 hover:scale-125"
+              className="duration-100 ease-in icon hover:scale-125"
               href="https://github.com/SandeepBalachandran/workflow-visualizer/"
               target="_blank"
               rel="noreferrer"
@@ -44,7 +54,7 @@ const Header: NextPage = () => {
       </Nav>
 
       <Popup onClose={togglehandler} show={visible} title="Frequently Asked Questions">
-        <div className="my-8 px-4 ">
+        <div className="px-4 my-8 ">
           <ul className="list-disc">
             <li className="m-6">
               <div className="flex flex-col">

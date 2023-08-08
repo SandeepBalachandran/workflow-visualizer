@@ -8,6 +8,8 @@
 [![](https://img.shields.io/github/stars/SandeepBalachandran/workflow-visualizer?style=for-the-badge)](#stars)
 [![](https://img.shields.io/github/forks/SandeepBalachandran/workflow-visualizer?style=for-the-badge)](#forks)
 
+[![Workflow Visualizer - Create your workflow | Product Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=407405&theme=light)](https://www.producthunt.com/posts/workflow-visualizer?utm_source=badge-featured&utm_medium=badge&utm_source=badge-workflow-visualizer)
+
 👉 &nbsp;&nbsp;[Workflow Visualizer](https://workflow-visualizer.vercel.app/)&nbsp;&nbsp;👈
 
 </div>

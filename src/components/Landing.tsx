@@ -4,7 +4,6 @@ import Logo from '../../public/landing_logo.svg';
 import { NextPage } from 'next';
 import Router from 'next/router';
 import { isInProgress } from '../helpers/helper';
-import useStore from '../store/store';
 import { getIcon } from '../utils/icons';
 import { Container } from '../styles/style';
 
@@ -14,6 +13,8 @@ const Landing: NextPage = () => {
     isInProgress() ? Router.push('/editor') : Router.push('/choose');
   };
   // if (nodes.length) {
+  const productHuntUrl =
+    'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=407405&theme=light';
   return (
     <>
       <Container>
@@ -27,6 +28,14 @@ const Landing: NextPage = () => {
               in no time
             </h1>
             <div className="w-full text-center lg:text-left">
+              <a
+                href="https://www.producthunt.com/posts/workflow-visualizer?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-workflow&#0045;visualizer"
+                target="_blank"
+                rel="noreferrer"
+                className="flex justify-center my-6 md:hidden"
+              >
+                <img src={productHuntUrl} alt="producthunt" />
+              </a>
               <div
                 onClick={routeToEditor}
                 className="actionBtn relative w-[150px] rounded p-3 my-6 bg-white text-[#155bd5] text-center font-bold hover:cursor-pointer inline-block transition-all	duration-75 "
